@@ -1,0 +1,144 @@
+<section class="section pt-0" style="background-color: #fff">
+    <div class="section__container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col col-12 col-lg-12">
+                    <div class="section__heading">
+                        <h2
+                            class="fw-bold mb-lg-0 mb-3 mt-lg-5 mt-3 text-center fs-1 color-orange lh2">
+                            Program Umroh Bersama Payung Madinah Tour
+                        </h2>
+                        <p class="content__text mb-lg-5 mb-2 text-center">
+                            Rasakan Kenyamanan dalam menjalankan ibadah umroh
+                            dengan Program Umroh Bersama Payung
+                            Madinah Tour Plus.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="serviceme">
+                <div class="swiper swiperProduct">
+                    <div class="swiper-wrapper">
+                        {{#each umrohList}}
+                            <div class="swiper-slide flat card card-post card-white mb-lg-4 mb-4 js-match-height">
+                                <img style="max-height:315px;aspect-ratio:1/1;"
+                                    alt="Images"
+                                    src="/uploads/{{this.thumbnail}}" />
+                                <div class="card-body"
+                                    style="background-color: white;">
+                                    <div class="text-center">
+                                        <h2
+                                            class="fw-bold color-orange fs-4 mb-1">{{this.name}}</h2>
+                                        <p
+                                            class="text-muted fs-12 mb-4">{{this.subtitle}}</p>
+                                    </div>
+                                    <div class="card-umroh--trip">
+                                        <div
+                                            class="card-umroh--trip-info text-muted">
+                                            <i
+                                                class="bi bi-calendar me-2 color-orange"></i>
+                                            <span
+                                                class="fw-bold text-muted">{{this.tanggal}}</span>
+                                            | {{this.total_hari}} Hari
+                                        </div>
+                                        <div class="card-umroh--trip-action">
+                                            Direct
+                                        </div>
+                                    </div>
+
+                                    <div class="card-umroh--travel">
+                                        <div
+                                            class="travel-title">Maskapai<br />Penerbangan</div>
+                                        <div class="travel-logo">
+                                            <img loading="lazy"
+                                                src="/images/partner/{{this.maskapai}}.png" />
+                                        </div>
+                                    </div>
+
+                                    <div class="card-stars">
+                                        <div class="card-stars--list gap-3">
+                                            <div class="card-stars--item">
+                                                <div class="card-stars--name">Hotel
+                                                    Madinah</div>
+                                                <div
+                                                    class="d-flex card-stars--hotel-info">
+                                                    <div>
+                                                        <h6>{{this.hotel_madinah}}</h6>
+                                                    </div>
+                                                    <div class="ms-auto">
+                                                        <span>
+                                                            <i
+                                                                class="bi bi-star-fill text-warning me-1"></i>
+                                                            <i
+                                                                class="bi bi-star-fill text-warning me-1"></i>
+                                                            <i
+                                                                class="bi bi-star-fill text-warning me-1"></i>
+                                                            <i
+                                                                class="bi bi-star-fill text-warning me-1"></i>
+                                                            <i
+                                                                class="bi bi-star text-warning me-1"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-stars--item">
+                                                <div class="card-stars--name">Hotel
+                                                    Makkah</div>
+                                                <div
+                                                    class="d-flex card-stars--hotel-info">
+                                                    <div>
+                                                        <h6>{{this.hotel_makkah}}</h6>
+                                                    </div>
+                                                    <div class="ms-auto">
+                                                        <span>
+                                                            <i
+                                                                class="bi bi-star-fill text-warning me-1"></i>
+                                                            <i
+                                                                class="bi bi-star-fill text-warning me-1"></i>
+                                                            <i
+                                                                class="bi bi-star-fill text-warning me-1"></i>
+                                                            <i
+                                                                class="bi bi-star-fill text-warning me-1"></i>
+                                                            <i
+                                                                class="bi bi-star text-warning me-1"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-level {{this.level}}">
+                                        <div class="package-info">
+                                            {{this.levelText}}
+                                        </div>
+                                        <div class="package-background">
+                                            <div class="package-background--label">
+                                                Mulai dari
+                                            </div>
+                                            <div class="package-background--price">
+                                                {{this.priceShort}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-actions text-center py-1">
+                                        <div class="row justify-content-center">
+                                            <div class="col col-12">
+                                                <a href="/umroh/{{this.slug}}"
+                                                    class="orange fs-14 mb-0 mb-lg-2 text-center">Lihat
+                                                    Selengkapnya</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-lg-3 mt-2">
+                <a href="/umroh" style="color:#b19167;font-size:12px;">Lihat
+                    Semua Paket <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>

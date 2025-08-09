@@ -1,0 +1,318 @@
+{{> components/navigation}}
+<div class="submasthead light" style="background-color: #fefefe; height:430px;">
+</div>
+<section class="masthead__container mb-lg-5 mb-3 pb-2 pb-lg-5">
+  <div class="container">
+    <div class="row jusify-content-center">
+      <div class="col col-12 col-lg-9 mb-lg-4 mb-1">
+        {{> components/breadcrumb breadcrumbs=breadcrumbs}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-12 col-lg-6 order-2 order-lg-1">
+        <div class="detail-header">
+          <h1 class="text-dark fs-2">Yuk Gabung dan Berikan 
+            Makna untuk Setiap Jamaah!</h1>
+          <p class="mb-lg-5 mb-3 text-dark">Rasakan Kenyamanan dalam menjalankan
+            ibadah umroh
+            dengan Program Umroh Plus Bersama Payung Madinah.</p>
+          <div class="d-flex gap-3">
+            <a class="bt block-mobile orange text-black mb-0 mb-lg-2" href="http://linktr.ee/payungmadinahtour"
+              target="_blank"><i class="bi bi-whatsapp me-2"></i>Tanya Admin</a>
+            <a class="bt block-mobile text-dark mb-0 mb-lg-2" href="#daftarlowongan" target="_self">Daftar Lowongan<i
+                class="bi bi-arrow-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col col-12 col-lg-6 order-1 order-lg-2">
+        <div class="thumb-karir">
+          <img loading="lazy" src="/images/pmadinahkarir-min.png" alt="Karir Payung Madinah" data-aos="fade" data-aos-delay="0" data-aos-duration="1500"/>
+        </div>
+      </div>
+    </div>
+</section>
+
+{{> components/counter}}
+
+{{> components/about2}}
+
+<!-- section karir form -->
+<section class="karir-search" style="background-color: #f9f9f9;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col col-lg-8 col-12">
+        <h2 class="text-center mb-lg-4 mb-3 color-orange">Berkarir Bersama
+          Payung Madinah!</h2>
+        <p class="mb-lg-5 mb-4">
+          Untuk kamu yang ingin merasakan pengalaman kerja yang bermakna,
+          Payung Madinah membuka tiga jalur
+          kesempatan berkarir: Fresh Graduate untuk lulusan baru dengan
+          pilihan program pengembangan dan
+          posisi staf, Experienced untuk profesional yang sudah memiliki
+          pengalaman di dunia kerja, serta Magang
+          Jamaah Muda khusus bagi lulusan SMA/SMK yang ingin belajar langsung
+          di dunia pelayanan ibadah.
+        </p>
+      </div>
+    </div>
+    <div class="row mb-lg-3 justify-content-center">
+      <div class="col-12 col-lg-3 mb-lg-0 mb-3">
+        <div class="position-relative">
+          <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+          <input type="search" class="form-control ps-5 js-karir-search" placeholder="Cari Lowongan" />
+        </div>
+      </div>
+      <div class="col-12 col-lg-3 mb-lg-0 mb-3">
+        <select class="form-control js-karir-jenjang" placeholder="Jenjang Pendidikan">
+          <option class="slta">
+            -- Pilih Jenjang
+          </option>
+          <option class="sma/smk">
+            SMA/SMK
+          </option>
+          <option class="d3">
+            D3
+          </option>
+          <option class="s1">
+            D4/S1
+          </option>
+        </select>
+      </div>
+      <div class="col-12 col-lg-3 mb-lg-0 mb-3">
+        <select class="form-control js-karir-domisili" placeholder="Jenjang Pendidikan">
+          <option class="slta">
+            -- Pilih Domisili
+          </option>
+          <option class="palembang">
+            Palembang
+          </option>
+          <option class="jakarta">
+            Jakarta
+          </option>
+          <option class="bandung">
+            Bandung
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end section karir form -->
+
+<!-- section list-->
+<section class="karir-list js-karir-list" id="daftarlowongan">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col col-12 col-lg-8">
+        <div class="row justify-content-center mt-lg-5 mt-4">
+          <!-- item -->
+          <div class="col col-12 col-lg-12">
+            <div class="card card-post card-white mb-lg-5 mb-4 js-match-height" data-title="Fullstack Web Developer" data-edu="D3,S1" data-location="Palembang">
+              <h2 class="mb-0 fw-bold fs-6 text-bg-orange ptop" data-aos="fade" data-aos-duration="200" data-aos-delay="300">Fullstack Web Developer</h2>
+              <div class="card-body pt-0">
+                <div class="row">
+                  <div class="col col-8">
+                    <ul class="lnone mb-0">
+                      <li><i class="bi bi-map me-2 text-muted"></i>Penempatan : Palembang</li>
+                      <li><i class="bi bi-person me-2 text-muted"></i>Onsite | Full - Time</li>
+                      <li><i class="bi bi-mortarboard me-2 text-muted"></i>Pelamar D3,S1</li>
+                    </ul>
+                  </div>
+                  <div class="col col-4 float-end">
+                    {{> components/sendmail}}
+                    <br />
+                    <br />
+                    <br />
+                    <a href="#" class="float-end" style="font-size: 13px;color:black;display:block;"
+                      data-bs-toggle="modal" data-bs-target="#hiringweb">Lihat
+                      Detail
+                      Kualifikasi</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end item -->
+
+          <!-- item -->
+          <div class="col col-12 col-lg-12">
+            <div class="card card-post card-white mb-lg-5 mb-4 js-match-height" data-title="Chief Marketing Officer" data-edu="D3,S1" data-location="Palembang, Jakarta">
+              <h2 class="mb-0 fw-bold fs-6 text-bg-orange ptop" data-aos="fade" data-aos-duration="200" data-aos-delay="300">Chief Marketing Officer</h2>
+              <div class="card-body pt-0">
+                <div class="row">
+                  <div class="col col-8">
+                    <ul class="lnone mb-0">
+                      <li><i class="bi bi-map me-2 text-muted"></i>Penempatan : Palembang, Jakarta</li>
+                      <li><i class="bi bi-person me-2 text-muted"></i>Onsite | Full - Time</li>
+                      <li><i class="bi bi-mortarboard me-2 text-muted"></i>Pelamar D3,S1</li>
+                    </ul>
+                  </div>
+                  <div class="col col-4 float-end">
+                    {{> components/sendmail}}
+                    <br />
+                    <br />
+                    <br />
+                    <a href="#" class="float-end" style="font-size: 13px;color:black;display:block;"
+                      data-bs-toggle="modal" data-bs-target="#hiring1">Lihat
+                      Detail
+                      Kualifikasi</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end item -->
+
+          <!-- item -->
+          <div class="col col-12 col-lg-12">
+            <div class="card card-post card-white mb-lg-5 mb-4 js-match-height" data-title="Content Editor" data-edu="D3,S1" data-location="Palembang">
+              <h2 class="mb-0 fw-bold fs-6 text-bg-orange ptop" data-aos="fade" data-aos-duration="200" data-aos-delay="300">Content Editor</h2>
+              <div class="card-body pt-0">
+                <div class="row">
+                  <div class="col col-8">
+                    <ul class="lnone mb-0">
+                      <li><i class="bi bi-map me-2 text-muted"></i>Penempatan : Palembang</li>
+                      <li><i class="bi bi-person me-2 text-muted"></i>Onsite | Full - Time</li>
+                      <li><i class="bi bi-mortarboard me-2 text-muted"></i>Pelamar D3,S1</li>
+                    </ul>
+                  </div>
+                  <div class="col col-4 float-end">
+                    {{> components/sendmail}}
+                    <br />
+                    <br />
+                    <br />
+                    <a href="#" class="float-end" style="font-size: 13px;color:black;display:block;"
+                      data-bs-toggle="modal" data-bs-target="#hiringeditor">Lihat Detail
+                      Kualifikasi</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end item -->
+
+          <!-- item -->
+          <div class="col col-12 col-lg-12">
+            <div class="card card-post card-white mb-lg-5 mb-4 js-match-height" data-title="Staff Operasional" data-edu="D3,S1" data-location="Palembang, Jakarta, Bandung">
+              <h2 class="mb-0 fw-bold fs-6 text-bg-orange ptop" data-aos="fade" data-aos-duration="200" data-aos-delay="300">Staff Operasional</h2>
+              <div class="card-body pt-0">
+                <div class="row">
+                  <div class="col col-8">
+                    <ul class="lnone mb-0">
+                      <li><i class="bi bi-map me-2 text-muted"></i>Penempatan : Palembang, Jakarta, Bandung</li>
+                      <li><i class="bi bi-person me-2 text-muted"></i>Onsite | Full - Time</li>
+                      <li><i class="bi bi-mortarboard me-2 text-muted"></i>Pelamar D3,S1</li>
+                    </ul>
+                  </div>
+                  <div class="col col-4 float-end">
+                    {{> components/sendmail}}
+                    <br />
+                    <br />
+                    <br />
+                    <a href="#" class="float-end" style="font-size: 13px;color:black;display:block;"
+                      data-bs-toggle="modal" data-bs-target="#hiring2">Lihat
+                      Detail
+                      Kualifikasi</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end item -->
+
+          <!-- item -->
+          <div class="col col-12 col-lg-12">
+            <div class="card card-post card-white mb-lg-5 mb-4 js-match-height" data-title="Staff Dokumentasi" data-edu="SMA/SMK/D3" data-location="Palembang, Jakarta">
+              <h2 class="mb-0 fw-bold fs-6 text-bg-orange ptop" data-aos="fade" data-aos-duration="200" data-aos-delay="300">Staff Dokumentasi</h2>
+              <div class="card-body pt-0">
+                <div class="row">
+                  <div class="col col-8">
+                    <ul class="lnone mb-0">
+                      <li><i class="bi bi-map me-2 text-muted"></i>Penempatan : Palembang, Jakarta</li>
+                      <li><i class="bi bi-person me-2 text-muted"></i>Onsite | Full - Time</li>
+                      <li><i class="bi bi-mortarboard me-2 text-muted"></i>Pelamar SMA/SMK/D3</li>
+                    </ul>
+                  </div>
+                  <div class="col col-4 float-end">
+                    {{> components/sendmail}}
+                    <br />
+                    <br />
+                    <br />
+                    <a href="#" class="float-end" style="font-size: 13px;color:black;display:block;"
+                      data-bs-toggle="modal" data-bs-target="#hiring2">Lihat
+                      Detail
+                      Kualifikasi</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end item -->
+
+          <!-- item -->
+          <div class="col col-12 col-lg-12">
+            <div class="card card-post card-white mb-lg-5 mb-4 js-match-height" data-title="Staff Ticketing" data-edu="SMA/SMK/D3" data-location="Palembang, Jakarta">
+              <h2 class="mb-0 fw-bold fs-6 text-bg-orange ptop" data-aos="fade" data-aos-duration="200" data-aos-delay="300">Staff Ticketing</h2>
+              <div class="card-body pt-0">
+                <div class="row">
+                  <div class="col col-8">
+                    <ul class="lnone mb-0">
+                      <li><i class="bi bi-map me-2 text-muted"></i>Penempatan : Palembang, Jakarta</li>
+                      <li><i class="bi bi-person me-2 text-muted"></i>Onsite | Full - Time</li>
+                      <li><i class="bi bi-mortarboard me-2 text-muted"></i>Pelamar SMA/SMK/D3</li>
+                    </ul>
+                  </div>
+                  <div class="col col-4">
+                    {{> components/sendmail}}
+                    <br />
+                    <br />
+                    <br />
+                    <a href="#" class="float-end" style="font-size: 13px;color:black;display:block;"
+                      data-bs-toggle="modal" data-bs-target="#hiring2">Lihat
+                      Detail
+                      Kualifikasi</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end item -->
+
+          <!-- item -->
+          <div class="col col-12 col-lg-12">
+            <div class="card card-post card-white mb-lg-5 mb-4 js-match-height" data-title="Admin Customer Service" data-edu="SMA/SMK/D3" data-location="Palembang, Jakarta, Bandung">
+              <h2 class="mb-0 fw-bold fs-6 text-bg-orange ptop" data-aos="fade" data-aos-duration="200" data-aos-delay="300">Admin Customer Service</h2>
+              <div class="card-body pt-0">
+                <div class="row">
+                  <div class="col col-8">
+                   <ul class="lnone mb-0">
+                      <li><i class="bi bi-map me-2 text-muted"></i>Penempatan : Palembang, Jakarta, Bandung</li>
+                      <li><i class="bi bi-person me-2 text-muted"></i>Onsite | Full - Time</li>
+                      <li><i class="bi bi-mortarboard me-2 text-muted"></i>Pelamar SMA/SMK/D3</li>
+                    </ul>
+                  </div>
+                  <div class="col col-4 float-end">
+                    {{> components/sendmail}}
+                    <br />
+                    <br />
+                    <br />
+                    <a href="#" class="float-end" style="font-size: 13px;color:black;display:block;"
+                      data-bs-toggle="modal" data-bs-target="#hiring2">Lihat
+                      Detail
+                      Kualifikasi</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end item -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end section list -->
+
+{{> components/testimoni}}
+
+{{> components/footer}}

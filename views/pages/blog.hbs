@@ -1,0 +1,84 @@
+{{> components/navigation}}
+
+<section class="masthead__container mb-lg-5 mb-3 pb-2 pb-lg-5" style="background-color: #f9f9f9;">
+   <div class="container">
+      <div class="row jusify-content-center">
+         <div class="col col-12 col-lg-9 mb-lg-4 mb-1">
+            {{> components/breadcrumb breadcrumbs=breadcrumbs}}
+         </div>
+      </div>
+      <div class="row justify-content-center mb-lg-5 mb-4">
+         <div class="col col-lg-6 col-12 mb-lg-2 mb-4">
+            <h1 class="fw-bold fs-2 mb-lg-4 mb-3">Update Informasi
+               Seputar<br />Ibadah Suci</h1>
+            <img loading="lazy" src="/images/banners/banner-article1.jpg" data-aos="fade" data-aos-delay="0" data-aos-duration="1500"
+               class="w-100 pe-lg-3 pe-2"
+               alt="Visa" />
+         </div>
+
+         {{#each blog_last}}
+            <div class="col col-lg-4 col-12 position-relative">
+               <div class="center-vertical">
+                  <div class="d-flex mb-lg-2">
+                     <div class="tgl pills-text">Artikel</div>
+                     <div class="ms-2 tgl">Update : {{formatTanggalID this.created_at}}</div>
+                  </div>
+                  <h2 class="fw-bold fs-4 mt-2">
+                     {{this.title}}
+                  </h2>
+                  <p class="mb-lg-3 mb-4 ellipsis-3-lines ">
+                     {{this.content}}
+                  </p>
+                  <img loading="lazy" src="uploads/{{this.thumbnail}}" data-aos="fade" data-aos-delay="0" data-aos-duration="1500"
+                     class="w-100" style="border-radius: 12px; max-height: 180px;"
+                     alt="Visa" />
+               </div>
+            </div>
+         {{/each}}
+      </div>
+   </div>
+</section>
+<section class="masthead__container pt-lg-5 pt-4">
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="col col-12 col-lg-9">
+            <div class="detail-header">
+               <h1 class="color-orange">Berita & Artikel</h1>
+               <p class="text-dark">Kami selalu memberikan pelayanan Terbaik
+                  demi Keamanan &
+                  Kenyamanan ibadah Haji & Umroh Anda beserta Keluarga.</p>
+            </div>
+         </div>
+         <div class="col col-12 col-lg-9">
+            <div class="row">
+               {{#each blogs}}
+               <div class="col col-12 col-xl-6">
+                  <div
+                     class="card card-post card-white mb-lg-4 mb-4 js-match-height">
+                     <div class="d-flex">
+                        <div class="position-relative">
+                           <img width="200" height="200" class="card-article"
+                              alt="Images" src="uploads/{{this.thumbnail}}" data-aos="fade" data-aos-delay="0" />
+                        </div>
+                        <div class="card-body">
+                           <div class="d-flex mb-lg-2">
+                              <div class="tgl">Artikel</div>
+                              <div class="ms-auto tgl">{{formatTanggalID
+                                 this.created_at}}</div>
+                           </div>
+                           {{linkAnchor 'berita' this.slug this.title}}
+                           <div class="content__text text-muted"
+                              style="color:#444 !important;font-size:.75rem;">
+                           </div>
+                           <p class="ellipsis-2-lines mb-0">{{this.content}}</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               {{/each}}
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+{{> components/footer}}

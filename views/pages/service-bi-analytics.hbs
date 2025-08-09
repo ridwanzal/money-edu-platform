@@ -1,0 +1,39 @@
+{{> components/navigation}}
+
+<section class="masthead__container">
+   <div class="container">
+      <div class="row">
+         {{> components/breadcrumb breadcrumbs=breadcrumbs}}
+      </div>
+      <div class="row mb-3 pb-5 text-center">
+         <div class="col col-12 col-md-12 mb-12">
+         <img class="img-fluid lazyload" data-src="/images/banner-bi.webp"
+               alt="Bangun landing page impianmu" />
+         </div>
+      </div>
+      <div class="row justify-content-center mt-2 pt-2">
+         <div class="col col-12 col-md-8">
+            <h2 class="head__text--title mb-3 pb-3 text-center" data-aos="fade">
+               Business Intelligence and Data Analytics
+            </h2>
+            <p class="content__text text-center ps-md-5 pe-md-5 mb-5">
+            Information has now become most valuable asset. Business Intelligence and analytics offer the right tools and application to bring those information and help improve business decision-making. We offer our customers end-to-end solutions covering BI and analytics as our services from consulting, maintenance and support.
+            </p>
+            <h2>Solutions</h2>
+            <ul>
+               <li>Bussiness Intelligence Consulting</li>
+               <li>Data Warehousing Consulting</li>
+               <li>Data Integration Consulting</li>
+               <li>Data Migration Consulting</li>
+               <li>Data Visualization Consulting</li>
+            </ul>
+         </div>
+      </div>
+      <div class="row justify-content-center mt-2">
+         <div class="col col-12 col-md-5 mb-4">
+            {{> components/pricecustom withprice='ok'}}
+         </div>
+      </div>
+   </div>
+</section>
+{{> components/footer}}

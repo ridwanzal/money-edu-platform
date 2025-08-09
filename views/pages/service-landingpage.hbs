@@ -1,0 +1,32 @@
+{{> components/navigation}}
+
+<section class="masthead__container">
+   <div class="container">
+      <div class="row">
+         {{> components/breadcrumb breadcrumbs=breadcrumbs}}
+      </div>
+      <div class="row mb-3 pb-5 text-center">
+         <div class="col col-12 col-md-12 mb-12">
+            <img class="img-fluid lazyload" data-src="/images/banner-landing.webp"
+               alt="Bangun landing page impianmu" />
+         </div>
+      </div>
+      <div class="row justify-content-center mt-2 pt-2">
+         <div class="col col-12 col-md-8">
+            <h2 class="head__text--title mb-3 pb-3 text-center" data-aos="fade">
+               Landing Page
+            </h2>
+            <p class="content__text text-center ps-md-5 pe-md-5 mb-5">
+            Elevate your website's professionalism and quality with Payung Madinah’s exclusive landing page design services. We offer mobile-friendly, SEO-compliant designs that ensure fast performance and a seamless user experience. Our services include integration of SEO and SERP tools to enhance your website's search engine readiness.
+            </p>
+         </div>
+      </div>
+      {{> components/listwebadds}}
+      <div class="row justify-content-center mt-2">
+         <div class="col col-12 col-md-5 mb-4">
+            {{> components/pricelanding withprice='ok'}}
+         </div>
+      </div>
+   </div>
+</section>
+{{> components/footer}}

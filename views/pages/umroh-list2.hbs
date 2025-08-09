@@ -1,0 +1,267 @@
+{{> components/navigation}}
+
+<div class="submasthead">
+  <img loading="lazy" src="/images/banners/background.png" alt="Visa" />
+</div>
+<section class="masthead__container mb-lg-4 mb-4 pb-lg-1">
+  <div class="container">
+    <div class="row jusify-content-center">
+      <div class="col col-12 col-lg-9 mb-lg-4 mb-1">
+        {{> components/breadcrumb breadcrumbs=breadcrumbs class="white"}}
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col col-12 col-lg-9">
+      </div>
+    </div>
+    <div class="btop-wrapper">
+      <!-- list visa -->
+      <div class="row justify-content-center">
+        <!-- item -->
+        <div class="col col-12 col-lg-12">
+          <div class="card card-post card-white mb-lg-4 mb-4 js-match-height">
+            <div class="card-body p-lg-5 py-lg-5 py-2 px-3 px-lg-5" style="  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;">
+              <div class="row">
+                <div class="col col-12 col-lg-3">
+                  <div class="genform--filter d-flex gap-4">
+                    <div class="genform--filter-icon">
+                      <img class="form-control-filter-icon rounded-0" src="./images/icons/ic1.png" height="24" alt />
+                    </div>
+                    <div class="genform--filter-select">
+                      <label class="form-control-filter-label d-block fs-6">Keberangkatan</label>
+                      <select class="form-control form-control-filter">
+                        <option>Januari</option>
+                        <option>Februari</option>
+                        <option>Maret</option>
+                        <option>April</option>
+                        <option>Mei</option>
+                        <option>Juni</option>
+                        <option>Juli</option>
+                        <option>Agustus</option>
+                        <option>September</option>
+                        <option>Oktober</option>
+                        <option>Novemeber</option>
+                        <option>Desember</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col col-12 col-lg-3">
+                  <div class="genform--filter d-flex gap-4">
+                    <div class="genform--filter-icon">
+                      <img class="form-control-filter-icon rounded-0" src="./images/icons/ic2.png" height="24" alt />
+                    </div>
+                    <div class="genform--filter-select">
+                      <label class="form-control-filter-label d-block fs-6">Umroh
+                        Plus</label>
+                      <select class="form-control form-control-filter">
+                        <option>Al-Ula</option>
+                        <option>Dubai</option>
+                        <option>Thaif</option>
+                        <option>Turki</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col col-12 col-lg-3">
+                  <div class="genform--filter d-flex gap-4">
+                    <div class="genform--filter-icon">
+                      <img class="form-control-filter-icon rounded-0" src="./images/icons/ic3.png" height="24" alt />
+                    </div>
+                    <div class="genform--filter-select">
+                      <label class="form-control-filter-label d-block fs-6">Maskapai</label>
+                      <select class="form-control form-control-filter">
+                        <option>Dubai → Emirates / Etihad</option>
+                        <option>Turki → Saudia / Turkish Airlines</option>
+                        <option>Thaif → Saudia / Qatar Airways</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col col-12 col-lg-3 position-relative">
+                  <div class="center-vertical">
+                    <button class="bt block-mobile orange text-white">
+                      <i class="bi bi-search me-2"></i>
+                      Temukan Sekarang</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end item -->
+      </div>
+    </div>
+  </div>
+</section>
+<section class="masthead__container pb-lg-5 pb-5">
+  <div class="container">
+    <div class="row justify-content-center mb-lg-5 mb-4">
+      <h1 class="color-orange fw-bold text-center mb-lg-4 mb-4">Program Umroh
+        Bersama Payung
+        Madinah Tour</h1>
+      <p class="text-center">Rasakan Kenyamanan dalam menjalankan ibadah Umroh
+        bersama Payung Madinah</p>
+    </div>
+    <div class="row serviceme">
+      {{#each umrohList}}
+      <div class="col col-12 col-md-6 col-xl-4" data-aos="fade" data-aos-duration="1300" data-aos-delay="10">
+        <div class="flat card card-post card-white mb-lg-4 mb-4 js-match-height">
+          <img style="max-height:315px;aspect-ratio:1/1;" alt="Images" src="/uploads/{{this.thumbnail}}" />
+          <div class="card-body" style="background-color: white;">
+            <div class="text-center">
+              <h2 class="fw-bold color-orange fs-4 mb-1">{{this.name}}</h2>
+              <p class="text-muted fs-12 mb-4">{{this.subtitle}}</p>
+            </div>
+            <div class="card-umroh--trip">
+              <div class="card-umroh--trip-info text-muted">
+                <i class="bi bi-calendar me-2 color-orange"></i>
+                <span class="fw-bold text-muted">{{this.tanggal}}</span> | {{this.total_hari}} Hari
+              </div>
+              <div class="card-umroh--trip-action">
+                Direct
+              </div>
+            </div>
+
+            <div class="card-umroh--travel">
+              <div class="travel-title">Maskapai<br />Penerbangan</div>
+              <div class="travel-logo">
+                <img loading="lazy" src="/images/partner/{{this.maskapai}}.png" />
+              </div>
+            </div>
+
+            <div class="card-stars">
+              <div class="card-stars--list gap-3">
+                <div class="card-stars--item">
+                  <div class="card-stars--name">Hotel Madinah</div>
+                  <div class="d-flex card-stars--hotel-info">
+                    <div>
+                      <h6>{{this.hotel_madinah}}</h6>
+                    </div>
+                    <div class="ms-auto">
+                      <span>
+                        <i class="bi bi-star-fill text-warning me-1"></i>
+                        <i class="bi bi-star-fill text-warning me-1"></i>
+                        <i class="bi bi-star-fill text-warning me-1"></i>
+                        <i class="bi bi-star-fill text-warning me-1"></i>
+                        <i class="bi bi-star text-warning me-1"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-stars--item">
+                  <div class="card-stars--name">Hotel Makkah</div>
+                  <div class="d-flex card-stars--hotel-info">
+                    <div>
+                      <h6>{{this.hotel_makkah}}</h6>
+                    </div>
+                    <div class="ms-auto">
+                      <span>
+                        <i class="bi bi-star-fill text-warning me-1"></i>
+                        <i class="bi bi-star-fill text-warning me-1"></i>
+                        <i class="bi bi-star-fill text-warning me-1"></i>
+                        <i class="bi bi-star-fill text-warning me-1"></i>
+                        <i class="bi bi-star text-warning me-1"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-level {{this.level}}">
+              <div class="package-info">
+                {{this.levelText}}
+              </div>
+              <div class="package-background">
+                <div class="package-background--label">
+                  Mulai dari
+                </div>
+                <div class="package-background--price">
+                  {{this.priceShort}}
+                </div>
+              </div>
+            </div>
+            <div class="card-actions text-center py-1">
+              <div class="row justify-content-center">
+                <div class="col col-12">
+                  <a href="/umroh/{{this.slug}}" class="orange fs-14 mb-0 mb-lg-2 text-center">Lihat
+                    Selengkapnya</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+</section>
+<section class="masthead__container pb-lg-5 pb-5">
+  <div class="container">
+    <div class="row justify-content-center mb-lg-5 mb-4">
+      <h2 class="color-orange fw-bold text-center fs-1 mb-lg-4 mb-4">Layanan
+        Eksklusif
+        Payung Madinah</h2>
+      <p class="text-center w-75">Payung Madinah menghadirkan layanan
+        eksklusif
+        mulai dari proses pendaftaran, keberangkatan, hingga kembali ke tanah
+        air, memastikan setiap jamaah merasakan kenyamanan, keamanan, dan
+        ketenangan ibadah di setiap langkah perjalanan.</p>
+    </div>
+    <div class="row">
+      <div class="col col-12 col-lg-3 js-match-height">
+        <div class="card-special mb-lg-5 mb-4 text-center">
+          <div class="card-special--icon text-center mb-lg-3 mb-2">
+            <i class="bi bi-calendar color-orange fs-1"></i>
+          </div>
+          <h3 class="card-special--title fs-6 fw-bold text-center">Pendampingan Ibadah</h3>
+          <p class="card-special--desc mb-lg-5 mb-4">Bimbingan ibadah oleh pembimbing berpengalaman dibidang Haji &
+            Umroh.
+          </p>
+          <a href="/tentang-kami" class="btx text-center">Lihat Selengkapnya</a>
+        </div>
+      </div>
+
+      <div class="col col-12 col-lg-3 js-match-height">
+        <div class="card-special mb-lg-5 mb-4 text-center">
+          <div class="card-special--icon text-center mb-lg-3 mb-2">
+            <i class="bi bi-person-bounding-box
+ fs-1 color-orange"></i>
+          </div>
+          <h3 class="card-special--title fs-6 fw-bold text-center">Akomodasi Premium </h3>
+          <p class="card-special--desc mb-lg-5 mb-4">Hotel bintang 4–5 yang hanya beberapa langkah dari Masjidil Haram &
+            Masjid Nabawi.</p>
+          <a href="/tentang-kami" class="btx text-center">Lihat Selengkapnya</a>
+        </div>
+      </div>
+
+      <div class="col col-12 col-lg-3 js-match-height">
+        <div class="card-special mb-lg-5 mb-4 text-center">
+          <div class="card-special--icon text-center mb-lg-3 mb-2">
+            <i class="bi bi-cash-stack fs-1 color-orange"></i>
+          </div>
+          <h3 class="card-special--title fs-6 fw-bold text-center">BeasPenerbangan Nyaman</h3>
+          <p class="card-special--desc mb-lg-5 mb-4">Menggunakan maskapai ternama, direct flight atau transit minimal.
+          </p>
+          <a href="/tentang-kami" class="btx text-center">Lihat Selengkapnya</a>
+        </div>
+      </div>
+
+      <div class="col col-12 col-lg-3 js-match-height">
+        <div class="card-special mb-lg-5 mb-4 text-center">
+          <div class="card-special--icon text-center mb-lg-3 mb-2">
+            <i class="bi bi-globe
+ fs-1 color-orange"></i>
+          </div>
+          <h3 class="card-special--title fs-6 fw-bold text-center">Tim Profesional</h3>
+          <p class="card-special--desc mb-lg-5 mb-4">Seluruh tim Payung Madinah sudah terlatih secara profesional dan
+            amanah.</p>
+          <a href="/tentang-kami" class="btx text-center">Lihat Selengkapnya</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{> components/clients}}
+{{> components/footer}}

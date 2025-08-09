@@ -1,0 +1,32 @@
+{{> components/navigation}}
+
+<section class="masthead__container">
+   <div class="container">
+      <div class="row">
+         {{> components/breadcrumb breadcrumbs=breadcrumbs}}
+      </div>
+      <div class="row mb-3 pb-5 text-center">
+         <div class="col col-12 col-md-12 mb-12">
+            <img class="img-fluid lazyload" data-src="/images/banner-ads.webp"
+               alt="Bangun landing page impianmu" />
+         </div>
+      </div>
+      <div class="row justify-content-center mt-2 pt-2">
+         <div class="col col-12 col-md-8">
+            <h2 class="head__text--title mb-3 pb-3 text-center" data-aos="fade">
+               Advertising Media
+            </h2>
+            <p class="content__text text-center ps-md-5 pe-md-5 mb-5">
+            Promote your product services, digitally with Payung Madinah, we help you design print, online and mobile media. In the form of
+            promotional banners, xbanners, backdrops, digital posts.
+            </p>
+         </div>
+      </div>
+      <div class="row justify-content-center mt-2">
+         <div class="col col-12 col-md-5 mb-4">
+            {{> components/pricecustom withprice='ok'}}
+         </div>
+      </div>
+   </div>
+</section>
+{{> components/footer}}

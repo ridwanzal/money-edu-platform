@@ -1,0 +1,43 @@
+{{> components/navigation}}
+
+<section class="masthead__container">
+   <div class="container">
+      <div class="row">
+         {{> components/breadcrumb breadcrumbs=breadcrumbs}}
+      </div>
+      <div class="row mb-3 pb-5 text-center">
+         <div class="col col-12 col-md-12 mb-12">
+            <img class="img-fluid lazyload"
+               data-src="/images/banner-slicing.webp"
+               alt="Bangun landing page impianmu" />
+         </div>
+      </div>
+      <div class="row justify-content-center mt-2 pt-2">
+         <div class="col col-12 col-md-8">
+            <h2 class="head__text--title mb-3 pb-3 text-center"
+               data-aos="fade">
+               Web Slicing and Landing Page Creation
+            </h2>
+            <p class="content__text text-center ps-md-5 pe-md-5 mb-5">
+               Transform your vision into impactful, conversion-driven web pages
+               with our web slicing and landing page creation services. Our
+               skilled designers and developers collaborate with you to
+               understand your objectives and audience, ensuring that each page
+               is both visually appealing and optimized for conversions. Whether
+               you need a custom landing page built from scratch or require an
+               existing design sliced and coded into a responsive format, we
+               offer tailored solutions to meet your needs. From simple landing
+               pages to more complex websites, our expertise ensures a
+               professional and effective outcome.
+               
+            </p>
+         </div>
+      </div>
+      <div class="row justify-content-center mt-2">
+         <div class="col col-12 col-md-5 mb-4">
+            {{> components/pricecustom withprice='ok'}}
+         </div>
+      </div>
+   </div>
+</section>
+{{> components/footer}}

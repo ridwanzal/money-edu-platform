@@ -1,0 +1,6 @@
+node_modules
+public/stylesheets/index.min.css.map
+.env
+public/uploads
+package-lock.json
+.env
