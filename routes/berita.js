@@ -3,36 +3,67 @@ const router = express.Router();
 const { promisePool } = require('../config/db');
 const { connection } = require('../config/db');
 const { last } = require('lodash');
+const Parser = require('rss-parser');
 
-router.get('/', function (req, res) {
-   const articleQuery = "SELECT * FROM blogs ORDER BY created_at DESC";
+const parser = new Parser();
+// List all feed URLs you want to pull from
+const FEED_URLS = [
+    'https://www.cnbcindonesia.com/rss', // Example: finance news
+    // add more as needed
+];
 
-   connection.query(articleQuery, function (err, articleRows) {
-      if (err) throw err;
+router.get('/', async function (req, res) {
+    try {
+        const allFeeds = [];
 
-         connection.query('SELECT * FROM blogs ORDER BY id DESC LIMIT 1', function (err, lastArticle) {
-            if (err) throw err;
-            const blog_last = lastArticle;
+        // Fetch each feed in parallel
+        const feedResults = await Promise.all(
+            FEED_URLS.map(url => parser.parseURL(url).catch(err => {
+                console.error(`Error fetching ${url}`, err);
+                return null; // Avoid breaking on one error
+            }))
+        );
 
-            res.render('pages/blog', {
-               title: 'Blog - Payung Madinah',
-               type: "article",
-               canonical: 'https://payungmadinah.id/berita',
-               author: 'Payung Madinah',
-               description: 'Spesialis Umroh Plus Wujudkan Impian Umroh dengan fasilitas terbaik, berkelas, terjangkau, nyaman dan terpercaya.',
-               keywords: 'Wujudkan impian Umroh Anda bersama Payung Madinah. Paket Umroh Plus dengan fasilitas terbaik, harga terjangkau, dan layanan terpercaya',
-               breadcrumbs: [
-                  { name: 'Home', link: '/' },
-                  { name: 'Berita & Artikel', link: '/berita' }
-               ],
-               blogs: articleRows,
-               blog_last: blog_last
-            });
-         });
+        // Flatten all feeds
+        feedResults.forEach(feed => {
+            if (feed && feed.items) {
+                feed.items.forEach(item => {
+                    allFeeds.push({
+                        source: feed.title || 'Unknown Source',
+                        title: item.title,
+                        link: item.link,
+                        pubDate: new Date(item.pubDate),
+                        contentSnippet: item.contentSnippet || '',
+                        isoDate: item.isoDate || null
+                    });
+                });
+            }
+        });
 
-   });
+        // Sort by date (newest first)
+        allFeeds.sort((a, b) => b.pubDate - a.pubDate);
+
+        // Render HTML page
+        res.render('pages/blog', {
+            messageContact: req.session.messageContact,
+            title: 'E-Ibu Cerdas',
+            type: 'website',
+            canonical: 'E-Ibu Cerdas',
+            author: 'E-Ibu Cerdas',
+            description: 'E-Ibu Cerdas adalah platform edukasi dan investasi yang membantu ibu-ibu cerdas dalam mengelola keuangan keluarga.',
+            keywords: 'E-Ibu Cerdas, Investasi, Edukasi',
+            articles: allFeeds,
+            breadcrumbs: [
+                { name: 'Home', link: '/' },
+                { name: 'Kontak', link: '/kontak' }
+            ]
+        });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Failed to fetch feeds');
+    }
 });
-
 
 router.get('/:slug', function (req, res) {
    const slug = req.params.slug;

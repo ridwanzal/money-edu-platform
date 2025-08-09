@@ -74,3 +74,34 @@ hbs.registerHelper('formatDate', function (date) {
 hbs.registerHelper('ifEquals', function (arg1, arg2, options) {
   return arg1 == arg2 ? options.fn(this) : options.inverse(this);
 });
+
+hbs.registerHelper('len', function (array) {
+    if (Array.isArray(array)) {
+        return array.length;
+    }
+    return 0;
+});
+
+hbs.registerHelper('gt', function (a, b) {
+    return a > b;
+});
+
+hbs.registerHelper('ifCond', function (v1, operator, v2, options) {
+    if (!options || typeof options.fn !== 'function' || typeof options.inverse !== 'function') {
+        return ''; // Prevent "reading 'inverse'" error
+    }
+
+    switch (operator) {
+        case '==':  return (v1 == v2) ? options.fn(this) : options.inverse(this);
+        case '===': return (v1 === v2) ? options.fn(this) : options.inverse(this);
+        case '!=':  return (v1 != v2) ? options.fn(this) : options.inverse(this);
+        case '!==': return (v1 !== v2) ? options.fn(this) : options.inverse(this);
+        case '<':   return (v1 < v2) ? options.fn(this) : options.inverse(this);
+        case '<=':  return (v1 <= v2) ? options.fn(this) : options.inverse(this);
+        case '>':   return (v1 > v2) ? options.fn(this) : options.inverse(this);
+        case '>=':  return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+        case '&&':  return (v1 && v2) ? options.fn(this) : options.inverse(this);
+        case '||':  return (v1 || v2) ? options.fn(this) : options.inverse(this);
+        default:    return options.inverse(this);
+    }
+});
