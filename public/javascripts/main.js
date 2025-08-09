@@ -613,5 +613,15 @@ $(function () {
         }
       }, 3500);
 	})();
+
+	// Simple search filter
+	document.getElementById('searchInput').addEventListener('keyup', function() {
+			let filter = this.value.toLowerCase();
+			let cards = document.querySelectorAll('#videoList .video-card');
+			cards.forEach(card => {
+					let title = card.querySelector('.card-title').textContent.toLowerCase();
+					card.style.display = title.includes(filter) ? '' : 'none';
+			});
+	});
 	// End Initialize
 });

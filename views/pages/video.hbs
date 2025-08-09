@@ -1,0 +1,21 @@
+<div class="container py-3">
+    <h1 class="mb-3 h6">Video E-Ibu Cerdas</h1>
+
+    <input type="text" id="searchInput" class="form-control mb-3" placeholder="Cari video...">
+
+    <div id="videoList">
+        {{#each videos}}
+        <div class="card mb-3 video-card">
+            <iframe src="https://www.youtube.com/embed/{{videoId}}" 
+                    frameborder="0" allowfullscreen style="width:100%; height:200px; border-radius:10px;"></iframe>
+            <div class="card-body">
+                <h5 class="card-title text-dark">{{title}}</h5>
+                <p class="card-text">
+                    <small class="text-muted">Dipublikasikan: {{formatDate pubDate}}</small>
+                </p>
+                <a href="{{link}}" target="_blank" class="btn btn-primary btn-sm">Tonton di YouTube</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

@@ -22,6 +22,7 @@ const blogRouter = require('./routes/berita');
 const adminRouter = require('./routes/admin');
 const profileRouter = require('./routes/profile');
 const investasiRouter = require('./routes/investasi');
+const videoRouter = require('./routes/video');
 
 // Routers - API / Services
 const authSers = require('./routes/services/authService');
@@ -132,6 +133,7 @@ app.use('/', indexRouter);
 app.use('/berita', blogRouter);
 app.use('/profile', profileRouter);
 app.use('/investasi', investasiRouter);
+app.use('/video', videoRouter);
 
 // Backpage routes
 app.use('/admin', adminRouter);
