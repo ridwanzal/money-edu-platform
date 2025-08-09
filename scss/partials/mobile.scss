@@ -184,6 +184,12 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   cursor: pointer;
   transition: transform 0.2s ease;
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .menu-card i {
@@ -256,8 +262,8 @@ body {
   position: relative;
   padding-top: 56.25%; /* 16:9 ratio */
   background: #f4f4f4;
-  border: 1px solid #ddd;
 }
+
 .iframe-wrap iframe {
   position: absolute;
   top: 0;
@@ -266,6 +272,7 @@ body {
   height: 100%;
   border: 0;
 }
+
 .fallback-msg {
   display: none;
   padding: 16px;

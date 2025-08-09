@@ -3,37 +3,6 @@ window.lazySizesConfig.init = false;
 window.baseURL = $("body").data("baseurl");
 window.fullURL = $("body").data("fullurl");
 
-function setCookie(name, value, days) {
-	const d = new Date();
-	d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
-	document.cookie = `${name}=${value};expires=${d.toUTCString()};path=/`;
-}
-
-function getCookie(name) {
-	const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
-	return match ? match[2] : null;
-}
-
-$(function () {
-	const campaign1 = new bootstrap.Modal("#campaign1");
-	const campaign2 = new bootstrap.Modal("#campaign2");
-
-	if (!getCookie("hide_campaign1")) {
-		campaign1.show();
-	}
-
-	$("#toCampaign2").one("click", function () {
-		$("#campaign1").one("hidden.bs.modal", () => campaign2.show());
-		campaign1.hide();
-	});
-
-	$(".js-close-perm-modal").on("click", function (e) {
-		e.preventDefault();
-		setCookie("hide_campaign1", "true", 365); // Sembunyikan selama 1 tahun
-		campaign1.hide();
-	});
-});
-
 var core = {
 	init: function () {
 		this.goTop();
@@ -41,35 +10,9 @@ var core = {
 		this.sticky();
 		this.swiper();
 		AOS.init();
-		this.cookiesConsent();
 	},
 	lazyloading: function () {
 		lazySizes.init();
-	},
-	cookiesConsent: function () {
-		const banner = document.getElementById("cookie-consent-banner");
-		const acceptBtn = document.getElementById("accept-cookies");
-		const rejectBtn = document.getElementById("reject-cookies");
-
-		// Check existing consent
-		const userConsent = localStorage.getItem("cookieConsent");
-
-		if (!userConsent) {
-			banner.classList.remove("hidden");
-		}
-
-		acceptBtn.addEventListener("click", () => {
-			localStorage.setItem("cookieConsent", "accepted");
-			banner.classList.add("hidden");
-			// You can trigger your analytics/init code here
-			console.log("Cookies accepted");
-		});
-
-		rejectBtn.addEventListener("click", () => {
-			localStorage.setItem("cookieConsent", "rejected");
-			banner.classList.add("hidden");
-			console.log("Cookies rejected");
-		});
 	},
 	sticky: function () {
 		if ($(".js-ads-lp").length > 0) {

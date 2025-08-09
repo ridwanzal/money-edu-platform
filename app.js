@@ -18,22 +18,8 @@ require('dayjs/locale/id');
 
 // Routers - Pages
 const indexRouter = require('./routes/index');
-const aboutRouter = require('./routes/about');
-const projectRouter = require('./routes/project');
 const blogRouter = require('./routes/berita');
-const snkRouter = require('./routes/snk');
-const serviceRouter = require('./routes/service');
-const linkpageRouter = require('./routes/linkpage');
-const worksRouter = require('./routes/works');
 const adminRouter = require('./routes/admin');
-const contactRouter = require('./routes/contact');
-const visaRouter = require('./routes/visa');
-const umrohRouter = require('./routes/umroh');
-const galleryRouter = require('./routes/gallery');
-const karirRouter = require('./routes/karir');
-const sosialMediaRouter = require('./routes/socialmedia');
-const kebijakanRouter = require('./routes/kbp');
-const umrohGratisRouter = require('./routes/umrohgratis');
 const profileRouter = require('./routes/profile');
 const investasiRouter = require('./routes/investasi');
 
@@ -103,7 +89,6 @@ app.use((req, res, next) => {
   const protocol = req.protocol; // respects 'X-Forwarded-Proto' if 'trust proxy' is set
   const host = req.get('host');
 
-
   if (process.env.APP_ENV === 'production') {
     res.locals.fullUrl = 'https' + `://${host}${req.originalUrl}`;
     res.locals.baseUrl = 'https' + `://${host}`;
@@ -144,24 +129,7 @@ app.post('/uploader', upload.single('fileme'), (req, res) => {
 
 // Frontpage routes
 app.use('/', indexRouter);
-app.use('/about', aboutRouter);
-app.use('/tentang-kami', aboutRouter);
-app.use('/projects', projectRouter);
 app.use('/berita', blogRouter);
-app.use('/syarat-ketentuan', snkRouter);
-app.use('/layanan', serviceRouter);
-app.use('/works', worksRouter);
-app.use('/linkpage', linkpageRouter);
-app.use('/contact', contactRouter);
-app.use('/kontak', contactRouter);
-app.use('/visa', visaRouter);
-app.use('/umroh', umrohRouter);
-app.use('/galeri', galleryRouter);
-app.use('/karir', karirRouter);
-app.use('/sosial-media', sosialMediaRouter);
-app.use('/social-media', sosialMediaRouter);
-app.use('/kebijakan-privasi', kebijakanRouter);
-app.use('/umroh-gratis', umrohGratisRouter);
 app.use('/profile', profileRouter);
 app.use('/investasi', investasiRouter);
 
