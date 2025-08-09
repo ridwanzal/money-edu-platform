@@ -34,6 +34,8 @@ const karirRouter = require('./routes/karir');
 const sosialMediaRouter = require('./routes/socialmedia');
 const kebijakanRouter = require('./routes/kbp');
 const umrohGratisRouter = require('./routes/umrohgratis');
+const profileRouter = require('./routes/profile');
+const investasiRouter = require('./routes/investasi');
 
 // Routers - API / Services
 const authSers = require('./routes/services/authService');
@@ -160,6 +162,8 @@ app.use('/sosial-media', sosialMediaRouter);
 app.use('/social-media', sosialMediaRouter);
 app.use('/kebijakan-privasi', kebijakanRouter);
 app.use('/umroh-gratis', umrohGratisRouter);
+app.use('/profile', profileRouter);
+app.use('/investasi', investasiRouter);
 
 // Backpage routes
 app.use('/admin', adminRouter);

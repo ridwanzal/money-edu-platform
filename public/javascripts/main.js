@@ -640,7 +640,6 @@ $(function () {
     showSlide(index);
   }
 
-  // Wrap slides in flex container
   $carousel.css({
     display: 'flex',
     transition: 'transform 0.5s ease'
@@ -649,8 +648,27 @@ $(function () {
     flex: '0 0 100%'
   });
 
-  // Auto play every 3 seconds
   setInterval(nextSlide, 3000);
 
+	   (function(){
+      const iframe = document.getElementById('idxFrame');
+      const fallback = document.getElementById('fallback');
+      const openLink = document.getElementById('openLink');
+      const targetUrl = iframe.src;
+
+      openLink.href = targetUrl;
+
+      let loaded = false;
+      iframe.addEventListener('load', () => {
+        loaded = true;
+   
+      });
+
+      setTimeout(() => {
+        if (!loaded) {
+          fallback.style.display = 'block';
+        }
+      }, 3500);
+	})();
 	// End Initialize
 });
