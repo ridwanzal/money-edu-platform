@@ -12,33 +12,18 @@
     {{#each articles}}
       <div class="col-md-4 col-sm-6 mb-lg-4 mb-3">
         <div class="card h-100 shadow-sm">
-          {{!-- {{#if image}}
-            <img src="{{image}}" class="card-img-top" alt="Thumbnail">
-          {{else}}
-            <img src="https://via.placeholder.com/400x180?text=No+Image" class="card-img-top" alt="No Image">
-          {{/if}} --}}
-
           <div class="card-body">
             <h5 class="card-title">
-              <a href="{{link}}" target="_blank" class="text-decoration-none">
+              <a href="{{link}}" target="_blank" class="text-decoration-none text-dark">
                 {{title}}
               </a>
             </h5>
             <small class="text-muted d-block mb-2">
               {{source}} — {{pubDateStr}}
             </small>
-            <p class="card-text">
-              {{#if contentSnippet}}
-                {{#ifCond (gt (len contentSnippet) 120) true}}
-                  {{truncate contentSnippet 120}}...
-                {{else}}
-                  {{contentSnippet}}
-                {{/ifCond}}
-              {{/if}}
-            </p>
           </div>
-          <div class="card-footer bg-transparent border-0">
-            <a href="{{link}}" target="_blank" class="btn btn-outline-primary btn-sm">
+          <div class="card-footer bg-transparent border-0 mb-lg-3 mb-2">
+            <a href="{{link}}" target="_blank" class="btn d-block btn-outline-secondary btn-sm">
               Read More
             </a>
           </div>
