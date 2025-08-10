@@ -14,7 +14,6 @@ const FEED_URLS = [
     // add more as needed
 ];
 
-
 // Cache settings
 const CACHE_FILE = path.join(__dirname, '../cache/berita_cache.json');
 const CACHE_TTL = 10 * 60 * 1000; // 10 minutes
@@ -145,31 +144,31 @@ router.get('/', async function (req, res) {
 });
 
 router.get('/:slug', function (req, res) {
-   const slug = req.params.slug;
+    const slug = req.params.slug;
 
-   connection.query('SELECT * FROM blogs WHERE slug = ?', [slug], function (err, results) {
-      if (err) throw err;
-      if (!results.length) return res.status(404).render('404');
+    connection.query('SELECT * FROM blogs WHERE slug = ?', [slug], function (err, results) {
+        if (err) throw err;
+        if (!results.length) return res.status(404).render('404');
 
-      const blog = results[0];
+        const blog = results[0];
 
-      connection.query('SELECT * FROM blogs WHERE slug != ? ORDER BY created_at DESC LIMIT 5', [slug], function (err, otherResults) {
-         if (err) throw err;
-         const blog_other = otherResults;
-
-         connection.query('SELECT * FROM blogs ORDER BY id DESC LIMIT 1', [slug], function (err, lastArticle) {
+        connection.query('SELECT * FROM blogs WHERE slug != ? ORDER BY created_at DESC LIMIT 5', [slug], function (err, otherResults) {
             if (err) throw err;
+            const blog_other = otherResults;
 
-            const blog_last = lastArticle;
+            connection.query('SELECT * FROM blogs ORDER BY id DESC LIMIT 1', [slug], function (err, lastArticle) {
+                if (err) throw err;
 
-            res.render('pages/blog-detail', {
-               blog: blog,
-               blogs_other: blog_other,
-               blog_last: blog_last
-            });
-         })
-      });
-   });
+                const blog_last = lastArticle;
+
+                res.render('pages/blog-detail', {
+                    blog: blog,
+                    blogs_other: blog_other,
+                    blog_last: blog_last
+                });
+            })
+        });
+    });
 });
 
 

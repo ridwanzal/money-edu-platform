@@ -48,11 +48,32 @@
 
 <section class="article-list">
   <h2 class="section-title mb-lg-4 mb-3">Artikel Terbaru</h2>
-    <article class="article-card">
-      <img src="/images/blogs/html.webp" alt="Title of the Article" class="article-image">
-      <div class="article-content">
-        <h3>Title 1</h3>
-        <p class="mb-0">Info ini terbaik sekali.</p>
-      </div>
-    </article>
+  <div class="container">
+    <div class="row" id="articleList">
+      {{#each articles}}
+        <div class="col-12 mb-3">
+          <div class="shadow-sm h-100">
+            <div class="row g-0 align-items-center">
+              <!-- Teks -->
+              <div class="col-md-8 col-7 p-3">
+                <h5 class="card-title mb-1">
+                  <a href="{{link}}" target="_blank" class="text-decoration-none text-dark">
+                    {{title}}
+                  </a>
+                </h5>
+                <small class="text-muted d-block mb-2">
+                  {{source}}
+                </small>
+              </div>
+
+              <!-- Gambar -->
+              <div class="col-md-4 col-4">
+                <img src="/images/article-thumb.jpg" class="img-fluid rounded-end" alt="{{title}}">
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
 </section>
