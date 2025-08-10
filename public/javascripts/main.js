@@ -15,6 +15,20 @@ var core = {
 
 $(function () {
 	// Initialize
+	window.addEventListener('load', () => {
+		document.getElementById('preloader').style.display = 'none';
+	});
+
+	// Show preloader when clicking internal links
+	document.addEventListener('click', function (e) {
+		const link = e.target.closest('a');
+		if (link && link.href && link.origin === location.origin && !link.hasAttribute('target')) {
+			e.preventDefault();
+			document.getElementById('preloader').style.display = 'flex';
+			window.location.href = link.href;
+		}
+	});
+
 	core.init();
 	$(window).on("scroll", function (e) {
 		var scroll = $(this).scrollTop();
@@ -166,7 +180,6 @@ $(function () {
 
 		$('.form-slug-Artikel').val(slug);
 	});
-v 
 
 	new Swiper(".marquee-swiper", {
 		slidesPerView: "auto",
@@ -300,51 +313,51 @@ v
 			reader.readAsDataURL(file);
 		});
 	});
-	
+
 	$('#table-pendaftar').DataTable();
 
-  let $carousel = $('.carousel');
-  let $slides = $carousel.children();
-  let index = 0;
+	let $carousel = $('.carousel');
+	let $slides = $carousel.children();
+	let index = 0;
 
-  function showSlide(i) {
-    $carousel.css('transform', `translateX(-${i * 100}%)`);
-  }
+	function showSlide(i) {
+		$carousel.css('transform', `translateX(-${i * 100}%)`);
+	}
 
-  function nextSlide() {
-    index = (index + 1) % $slides.length;
-    showSlide(index);
-  }
+	function nextSlide() {
+		index = (index + 1) % $slides.length;
+		showSlide(index);
+	}
 
-  $carousel.css({
-    display: 'flex',
-    transition: 'transform 0.5s ease'
-  });
-  $slides.css({
-    flex: '0 0 100%'
-  });
+	$carousel.css({
+		display: 'flex',
+		transition: 'transform 0.5s ease'
+	});
+	$slides.css({
+		flex: '0 0 100%'
+	});
 
-  setInterval(nextSlide, 3000);
+	setInterval(nextSlide, 3000);
 
-	   (function(){
-      const iframe = document.getElementById('idxFrame');
-      const fallback = document.getElementById('fallback');
-      const openLink = document.getElementById('openLink');
-      const targetUrl = iframe.src;
+	(function () {
+		const iframe = document.getElementById('idxFrame');
+		const fallback = document.getElementById('fallback');
+		const openLink = document.getElementById('openLink');
+		const targetUrl = iframe.src;
 
-      openLink.href = targetUrl;
+		openLink.href = targetUrl;
 
-      let loaded = false;
-      iframe.addEventListener('load', () => {
-        loaded = true;
-   
-      });
+		let loaded = false;
+		iframe.addEventListener('load', () => {
+			loaded = true;
 
-      setTimeout(() => {
-        if (!loaded) {
-          fallback.style.display = 'block';
-        }
-      }, 3500);
+		});
+
+		setTimeout(() => {
+			if (!loaded) {
+				fallback.style.display = 'block';
+			}
+		}, 3500);
 	})();
 
 	// Simple search filter
@@ -352,12 +365,12 @@ v
 	const cards = document.querySelectorAll('#videoList .video-card');
 
 	searchInput.addEventListener('input', () => {
-			const filter = searchInput.value.trim().toLowerCase();
+		const filter = searchInput.value.trim().toLowerCase();
 
-			cards.forEach(card => {
-					const title = card.querySelector('.card-title').textContent.toLowerCase();
-					card.style.display = title.includes(filter) ? '' : 'none';
-			});
+		cards.forEach(card => {
+			const title = card.querySelector('.card-title').textContent.toLowerCase();
+			card.style.display = title.includes(filter) ? '' : 'none';
+		});
 	});
 
 	// End Initialize

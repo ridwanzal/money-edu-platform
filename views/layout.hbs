@@ -50,10 +50,10 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.min.css">
     <link rel="preload" href="/stylesheets/index.min.css?v=1.47.4" as="style" />
     <link rel="stylesheet" href="/stylesheets/index.min.css?v=1.47.4" />
-    <link rel="shortcut icon" href="/images/favicon-main.png">
+    <link rel="shortcut icon" href="/images/icons/image.png">
     <link rel="apple-touch-icon" href="/images/apple-touchs.png">
-    <link rel="preload" href="/images/thumb.png" as="image">
-    <link rel="preload" href="/images/contact.png" as="image">
+    <link rel="preload" href="/images/icons/image.png" as="image">
+    <link rel="preload" href="/images/icons/image.png" as="image">
   </head>
 
   <body data-baseurl="{{baseUrl}}" data-fullurl="{{fullUrl}}">
@@ -85,6 +85,9 @@
     {{/unless}}
     {{/if}}
     {{> components/header}}
+    <div id="preloader">
+      <div class="spinner"></div>
+    </div>
     {{> components/navigation}}
     {{{body}}}
   </body>
