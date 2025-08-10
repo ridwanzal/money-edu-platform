@@ -10,6 +10,10 @@ const path = require('path');
 const parser = new Parser();
 const FEED_URLS = [
    'https://www.cnbcindonesia.com/rss',
+   'https://finance.detik.com/rss',
+   'https://www.antaranews.com/rss/ekonomi',
+   'http://rss.tempo.co/bisnis',
+   'https://www.cnnindonesia.com/ekonomi/rss'
 ];
 
 // Cache settings
