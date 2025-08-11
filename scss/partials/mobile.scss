@@ -124,6 +124,10 @@ body {
 
 /* HEADER */
 .app-header {
+  position: sticky; /* Or fixed if you want it always at top */
+  top: 0;
+  z-index: 1000; /* Keep above other elements */
+  
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -45,34 +45,35 @@
   </div>
 </section>
 
-
 <section class="article-list">
-  <h2 class="section-title mb-lg-4 mb-3">Artikel Terbaru</h2>
   <div class="container">
     <div class="row" id="articleList">
+      <h2 class="section-title mb-lg-4 mb-3">Artikel Terbaru</h2>
       {{#each articles}}
-        <div class="col-12 mb-3">
-          <div class="h-100" style="border-bottom: 1px solid #eee;">
-            <div class="row align-items-center">
-              <!-- Teks -->
-              <div class="col-md-9 col-9 p-3">
-                <h5 class="card-title mb-1">
-                  <a href="{{link}}" target="_blank" class="text-decoration-none text-dark">
-                    {{title}}
-                  </a>
-                </h5>
-                <small class="text-muted d-block mb-2">
-                  {{source}}
-                </small>
-              </div>
+      <div class="col-12 mb-3 p-0">
+        <div class="h-100" style="border-bottom: 1px solid #eee;">
+          <div class="row align-items-center">
+            <!-- Teks -->
+            <div class="col-md-9 col-9 py-3">
+              <h5 class="card-title mb-1">
+                <a href="{{link}}" target="_blank"
+                  class="text-decoration-none text-dark">
+                  {{title}}
+                </a>
+              </h5>
+              <small class="text-muted d-block mb-2">
+                {{source}}
+              </small>
+            </div>
 
-              <!-- Gambar -->
-              <div class="col-md-3 col-3">
-                <img src="/images/article-thumb.jpg" class="img-fluid rounded-end" alt="{{title}}">
-              </div>
+            <!-- Gambar -->
+            <div class="col-md-3 col-3">
+              <img src="/images/article-thumb.jpg" class="img-fluid rounded-end"
+                alt="{{title}}">
             </div>
           </div>
         </div>
+      </div>
       {{/each}}
     </div>
   </div>

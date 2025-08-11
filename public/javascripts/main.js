@@ -14,10 +14,18 @@ var core = {
 };
 
 $(function () {
-	// Initialize
-	window.addEventListener('load', () => {
-		document.getElementById('preloader').style.display = 'none';
-	});
+	function hidePreloader() {
+		const preloader = document.getElementById('preloader');
+		if (preloader) {
+			preloader.style.display = 'none';
+		}
+	}
+
+	// Hide on normal load
+	window.addEventListener('load', hidePreloader);
+
+	// Hide on back/forward navigation (always)
+	window.addEventListener('pageshow', hidePreloader);
 
 	// Show preloader when clicking internal links
 	document.addEventListener('click', function (e) {
@@ -28,6 +36,7 @@ $(function () {
 			window.location.href = link.href;
 		}
 	});
+
 
 	core.init();
 	$(window).on("scroll", function (e) {
@@ -339,39 +348,18 @@ $(function () {
 
 	setInterval(nextSlide, 3000);
 
-	(function () {
-		const iframe = document.getElementById('idxFrame');
-		const fallback = document.getElementById('fallback');
-		const openLink = document.getElementById('openLink');
-		const targetUrl = iframe.src;
+	// End Initialize
+	document.addEventListener('input', e => {
+		if (e.target.id !== 'searchInput') return;
 
-		openLink.href = targetUrl;
-
-		let loaded = false;
-		iframe.addEventListener('load', () => {
-			loaded = true;
-
-		});
-
-		setTimeout(() => {
-			if (!loaded) {
-				fallback.style.display = 'block';
-			}
-		}, 3500);
-	})();
-
-	// Simple search filter
-	const searchInput = document.getElementById('searchInput');
-	const cards = document.querySelectorAll('#videoList .video-card');
-
-	searchInput.addEventListener('input', () => {
-		const filter = searchInput.value.trim().toLowerCase();
+		const filter = e.target.value.trim().toLowerCase();
+		const cards = document.querySelectorAll('#videoList .video-card');
 
 		cards.forEach(card => {
-			const title = card.querySelector('.card-title').textContent.toLowerCase();
+			const titleEl = card.querySelector('.card-title');
+			if (!titleEl) return;
+			const title = titleEl.textContent.toLowerCase();
 			card.style.display = title.includes(filter) ? '' : 'none';
 		});
 	});
-
-	// End Initialize
 });
