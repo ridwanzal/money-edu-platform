@@ -38,6 +38,7 @@
 		"nodemon": "^3.1.10",
 		"npm": "^11.3.0",
 		"npm-check-updates": "^16.3.25",
+		"pdfjs-dist": "^4.8.69",
 		"rss-parser": "^3.13.0",
 		"sass": "^1.55.0",
 		"sharp": "^0.34.3",

@@ -127,7 +127,7 @@ body {
   position: sticky; /* Or fixed if you want it always at top */
   top: 0;
   z-index: 1000; /* Keep above other elements */
-  
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -312,4 +312,23 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.pdf-card {
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.1s ease-in-out;
+}
+.pdf-card:hover {
+  transform: scale(1.01);
+}
+.pdf-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+.pdf-open-btn {
+  font-size: 0.9rem;
 }

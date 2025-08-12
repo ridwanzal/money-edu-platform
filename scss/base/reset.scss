@@ -1,5 +1,5 @@
 body {
-  margin: 0 auto;
+	margin: 0 auto;
 }
 
 h5 {
@@ -79,8 +79,8 @@ img {
 }
 
 .navbar-hide {
-    transform: translateY(-100%);
-    transition: transform 0.3s ease-in-out;
+	transform: translateY(-100%);
+	transition: transform 0.3s ease-in-out;
 }
 
 .navbar-toggler {
@@ -966,10 +966,10 @@ body {
 	width: 100%;
 }
 
-.swiperTeamX{
+.swiperTeamX {
 	margin-top: 150px;
 
-	@media #{$media-not-desktop}{
+	@media #{$media-not-desktop} {
 		margin-top: 0;
 	}
 }
@@ -1022,12 +1022,12 @@ body {
 	width: 95%;
 	left: 2.5%;
 
-	.bt-grouping{
-		.bcolor{
-			border: 2px solid #b19167
+	.bt-grouping {
+		.bcolor {
+			border: 2px solid #b19167;
 		}
 
-		.bwhite{
+		.bwhite {
 			border: 2px solid white;
 		}
 	}
@@ -1068,7 +1068,7 @@ body {
 		left: 0;
 		width: 100%;
 		padding: 16px 25px !important;
-		
+
 		h1 {
 			font-size: 18px;
 		}
@@ -1083,34 +1083,33 @@ body {
 .btop-wrapper {
 	margin-top: 390px;
 
-	@media #{$media-not-desktop}{
+	@media #{$media-not-desktop} {
 		margin-top: 120px;
 	}
 }
 
+.genform {
+	&--filter {
+		&-icon {
+			img {
+				height: 24px;
+			}
+		}
 
-.genform{
-  &--filter{
-    &-icon{
-      img {
-        height: 24px;
-      }
-    }
-
-    &-select{
-      label {
-        font-size: 14px;
-        margin-bottom: 10px;
-      }
-    }
-  }
+		&-select {
+			label {
+				font-size: 14px;
+				margin-bottom: 10px;
+			}
+		}
+	}
 }
 
-.form-control-filter-label{
+.form-control-filter-label {
 	font-size: 12px;
 	color: #aaa;
 }
-.form-control-filter{
+.form-control-filter {
 	border: none;
 	padding: 0;
 	font-size: 20px;
@@ -1118,24 +1117,23 @@ body {
 	background-color: transparent;
 }
 
-.form-control-filter-icon{
+.form-control-filter-icon {
 	height: 24px;
 
-	@media #{$media-not-desktop}{
+	@media #{$media-not-desktop} {
 		width: 24px;
 	}
 }
 
-.genform--filter{
-	@media #{$media-not-desktop}{
+.genform--filter {
+	@media #{$media-not-desktop} {
 		margin-bottom: 24px;
 	}
 }
 
-.form-label{
+.form-label {
 	font-size: 13px !important;
 }
-
 
 .gallery-container {
 	display: grid;
@@ -1188,26 +1186,26 @@ body {
 }
 
 .checklist {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
 
-  .checklist li {
-    display: flex;
-    align-items: start;
-    gap: 8px;
-    margin-bottom: 6px;
-  }
+.checklist li {
+	display: flex;
+	align-items: start;
+	gap: 8px;
+	margin-bottom: 6px;
+}
 
-  .checklist li::before {
-    content: '✅';
-    flex-shrink: 0;
-  }
+.checklist li::before {
+	content: "✅";
+	flex-shrink: 0;
+}
 
-.accordion-button:not(.collapsed){
+.accordion-button:not(.collapsed) {
 	color: black;
-	background-color: white; 
+	background-color: white;
 }
 
 .ts-control {
@@ -1218,14 +1216,33 @@ body {
 	font-size: 12px;
 }
 
-.ts-dropdown, .ts-control, .ts-control input{
+.ts-dropdown,
+.ts-control,
+.ts-control input {
 	font-size: 16px !important;
 }
 
-.ts-dropdown, .ts-control, .ts-control input::placeholder{
+.ts-dropdown,
+.ts-control,
+.ts-control input::placeholder {
 	font-size: 16px !important;
 }
 
-div.dt-container select.dt-input{
+div.dt-container select.dt-input {
 	margin-right: 12px;
+}
+
+.modal-pdf {
+	.modal-dialog {
+		max-width: 95%;
+	}
+	.modal-body {
+		height: 80vh;
+		padding: 0;
+	}
+	.modal-body iframe {
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
 }

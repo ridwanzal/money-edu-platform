@@ -23,6 +23,7 @@ const adminRouter = require('./routes/admin');
 const profileRouter = require('./routes/profile');
 const investasiRouter = require('./routes/investasi');
 const videoRouter = require('./routes/video');
+const modulRouter = require('./routes/modul');
 
 // Routers - API / Services
 const authSers = require('./routes/services/authService');
@@ -40,6 +41,8 @@ dayjs.extend(timezone);
 dayjs.locale('id');
 
 // Setup view engine
+app.use('/pdf', express.static(__dirname + '/public/pdf'));
+
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -77,6 +80,7 @@ app.use(express.static(path.join(__dirname, 'public'), {
 
 // Middleware to inject session values into views
 app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.locals.loggedin = req.session.loggedin || false;
   res.locals.credential = req.session.credential || null;
   res.locals.userId = req.session.userId || null;
@@ -134,6 +138,7 @@ app.use('/berita', blogRouter);
 app.use('/profile', profileRouter);
 app.use('/investasi', investasiRouter);
 app.use('/video', videoRouter);
+app.use('/modul', modulRouter);
 
 // Backpage routes
 app.use('/admin', adminRouter);
@@ -146,6 +151,18 @@ app.use('/services/blog', blogSers);
 app.use('/services/campaign', campaignSers);
 app.use('/services/umroh', umrohSers);
 app.use('/services/umrohgratis', umrohGratisSers);
+
+// Serve /pdfjs (PDF.js files)
+app.use('/pdfjs', express.static(path.join(__dirname, 'public/pdfjs')));
+
+// Serve /pdf (PDF files)
+app.use('/pdf', express.static(path.join(__dirname, 'public/pdf')));
+
+// Optional: handle /pdf without starting slash in ?file parameter
+app.get('/pdf/:filename', (req, res) => {
+  const filePath = path.join(__dirname, 'public/pdf', req.params.filename);
+  res.sendFile(filePath);
+});
 
 // 404 Not Found
 app.use((req, res) => {
