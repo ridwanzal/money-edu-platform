@@ -6,17 +6,17 @@ const pdfList = [
   {
     id: 1,
     title: "Economic Report 2024",
-    pdfPath: "/laporan1.pdf"
+    pdfPath: "/pdf/laporan1.pdf"
   },
   {
     id: 2,
     title: "Stock Market Overview Q2",
-    pdfPath: "/laporan1.pdf"
+    pdfPath: "/pdf/laporan2.pdf"
   },
   {
     id: 3,
     title: "Macroeconomic Trends",
-    pdfPath: "/laporan1.pdf"
+    pdfPath: "/pdf/laporan3.pdf"
   }
 ];
 

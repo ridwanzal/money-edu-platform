@@ -363,19 +363,19 @@ $(function () {
 		});
 	});
 
-	const pdfButtons = document.querySelectorAll('.pdf-open-btn');
-	const pdfViewer = document.getElementById('pdfViewer');
+const pdfButtons = document.querySelectorAll('.pdf-open-btn');
+const pdfViewer = document.getElementById('pdfViewer');
 
-	pdfButtons.forEach(button => {
-		button.addEventListener('click', () => {
-			const pdfPath = button.getAttribute('data-pdf');
-			pdfViewer.src = '/pdfjs/web/viewer.html?file=' + encodeURIComponent('pdf/laporan1.pdf');
-		});
-	});
+pdfButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const pdfPath = button.getAttribute('data-pdf');
+    pdfViewer.src = '/pdfjs/web/viewer.html?file=' + encodeURIComponent(pdfPath);
+  });
+});
 
-	// Clear iframe when modal closes
-	document.getElementById('pdfModal').addEventListener('hidden.bs.modal', () => {
-		pdfViewer.src = '';
-	});
+document.getElementById('pdfModal').addEventListener('hidden.bs.modal', () => {
+  pdfViewer.src = '';
+});
+
 
 });
