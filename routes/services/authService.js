@@ -16,20 +16,20 @@ router.post('/', (req, res) => {
   }
 
   // Query user by credential
-  const query = "SELECT id,role,created_at,updated_at,password FROM auth WHERE credential = ?";
+  const query = "SELECT id,role,created_at,updated_at,password FROM users WHERE credential = ?";
   connection.query(query, [credential], (err, results) => {
     if (err) {
       console.error("Database query error:", err);
       req.session.loggedin = false;
       req.session.messageAuth = 'Internal Server Error';
-      return res.redirect('/admin');
+      return res.redirect('/');
     }
 
     // Check if user exists
     if (results.length === 0) {
       req.session.loggedin = false;
       req.session.messageAuth = 'Wrong Credential / Password. Try again';
-      return res.redirect('/admin');
+      return res.redirect('/');
     }
 
     const hash = results[0].password;
@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
       req.session.messageAuth = 'Wrong Credential / Password. Try again';
     }
 
-    return res.redirect('/admin');
+    return res.redirect('/');
   });
 });
 
@@ -59,7 +59,7 @@ router.get('/logout', (req, res) => {
     if (err) {
       console.error("Session destroy error:", err);
     }
-    res.redirect('/admin');
+    res.redirect('/');
   });
 });
 
