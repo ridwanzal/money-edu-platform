@@ -4,7 +4,7 @@ const { promisePool } = require('../../config/db');
 const { connection } = require('../../config/db');
 const bcrypt = require('bcrypt');
 
-// POST /admin/login
+// POST
 router.post('/', (req, res) => {
   const { credential, password } = req.body;
 
@@ -53,7 +53,69 @@ router.post('/', (req, res) => {
   });
 });
 
-// GET /admin/logout
+
+//POST 
+router.post('/register', async (req, res) => {
+  const { name, email, password, confirmPassword } = req.body;
+
+  if (!name || !email || !password || !confirmPassword) {
+    req.session.error = "All fields are required.";
+    return res.redirect('/register');
+  }
+
+  if (password !== confirmPassword) {
+    req.session.error = "Passwords do not match.";
+    return res.redirect('/register');
+  }
+
+  try {
+    // check if email already exists
+    const [rows] = await connection.promise().query(
+      "SELECT id FROM users WHERE email = ? OR credential = ?",
+      [email, email]
+    );
+    if (rows.length > 0) {
+      req.session.error = "Email already registered.";
+      return res.redirect('/register');
+    }
+
+    // hash password
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    // insert new user (adjust to your schema)
+    const now = new Date();
+    await connection.promise().query(
+      `INSERT INTO users 
+       (credential, name, email, password, role, gender, age, profession, phone_number, address, created_at, updated_at) 
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        email,
+        name, // credential
+        email,
+        hashedPassword,
+        "user",   // default role
+        "unknown", // gender default
+        0,         // age default
+        "",        // profession
+        0,         // phone_number
+        "",        // address
+        now,
+        now
+      ]
+    );
+
+    req.session.success = "Registration successful. Please log in.";
+    return res.redirect('/auth/register');
+
+  } catch (err) {
+    console.error("Registration error:", err);
+    req.session.error = "Internal Server Error.";
+    return res.redirect('/auth/register');
+  }
+});
+
+// GET 
 router.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
