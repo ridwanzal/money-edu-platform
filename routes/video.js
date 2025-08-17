@@ -15,12 +15,10 @@ const CACHE_TTL = 10 * 60 * 1000; // 10 minutes
 let memoryCache = null;
 let memoryCacheTime = 0;
 
-// Check if memory cache is still fresh
 function isMemoryCacheValid(ttl) {
     return memoryCache && (Date.now() - memoryCacheTime < ttl);
 }
 
-// Check if file cache is fresh
 function isFileCacheValid(filePath, ttl) {
     try {
         const stats = fs.statSync(filePath);
@@ -31,7 +29,6 @@ function isFileCacheValid(filePath, ttl) {
     }
 }
 
-// Read cache file safely
 function readCacheSafe(filePath) {
     try {
         const data = fs.readFileSync(filePath, 'utf8').trim();
@@ -41,7 +38,6 @@ function readCacheSafe(filePath) {
     }
 }
 
-// Save cache file safely (atomic write)
 function saveCacheSafe(filePath, data) {
     try {
         const tmpPath = filePath + '.tmp';

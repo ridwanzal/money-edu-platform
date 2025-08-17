@@ -1,8 +1,5 @@
 const express = require('express');
-const { link } = require('fs');
 const router = express.Router();
-const { promisePool } = require('../config/db');
-const { connection } = require('../config/db');
 
 router.get('/', function (req, res, next) {
   res.render('pages/user-login', {
