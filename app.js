@@ -24,16 +24,12 @@ const profileRouter = require('./routes/profile');
 const investasiRouter = require('./routes/investasi');
 const videoRouter = require('./routes/video');
 const modulRouter = require('./routes/modul');
+const authRouter = require('./routes/auth');
 
 // Routers - API / Services
 const authSers = require('./routes/services/authService');
-const servSers = require('./routes/services/contactService');
 const uploadSers = require('./routes/services/uploadService');
 const blogSers = require('./routes/services/blogService');
-const campaignSers = require('./routes/services/campaignService');
-const umrohSers = require('./routes/services/umrohService');
-const umrohGratisSers = require('./routes/services/umrohgratisService');
-const gallerySers = require('./routes/services/galleryService');
 
 const app = express();
 dayjs.extend(utc);
@@ -139,18 +135,15 @@ app.use('/profile', profileRouter);
 app.use('/investasi', investasiRouter);
 app.use('/video', videoRouter);
 app.use('/modul', modulRouter);
+app.use('/auth', authRouter);
 
 // Backpage routes
 app.use('/admin', adminRouter);
 
 // Service routes
 app.use('/services/auth', authSers);
-app.use('/services/contact', servSers);
 app.use('/services/upload', uploadSers);
 app.use('/services/blog', blogSers);
-app.use('/services/campaign', campaignSers);
-app.use('/services/umroh', umrohSers);
-app.use('/services/umrohgratis', umrohGratisSers);
 
 // Serve /pdfjs (PDF.js files)
 app.use('/pdfjs', express.static(path.join(__dirname, 'public/pdfjs')));
