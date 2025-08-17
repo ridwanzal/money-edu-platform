@@ -4,68 +4,62 @@ const { promisePool } = require('../../config/db');
 const { connection } = require('../../config/db');
 const bcrypt = require('bcrypt');
 
-// POST
+// POST /auth/login
 router.post('/', (req, res) => {
   const { credential, password } = req.body;
 
-  // Check if both fields are provided
   if (!credential || !password) {
-    req.session.loggedin = false;
-    req.session.messageAuth = 'Please provide both credential and password';
-    return res.redirect('/admin');
+    req.session.flash = { type: 'error', message: "Please provide both credential and password" };
+    return res.redirect('/auth/');
   }
 
-  // Query user by credential
-  const query = "SELECT id,role,created_at,updated_at,password FROM users WHERE credential = ?";
+  const query = "SELECT id, role, created_at, updated_at, password FROM users WHERE credential = ?";
   connection.query(query, [credential], (err, results) => {
     if (err) {
       console.error("Database query error:", err);
-      req.session.loggedin = false;
-      req.session.messageAuth = 'Internal Server Error';
-      return res.redirect('/');
+      req.session.flash = { type: 'error', message: "Internal Server Error" };
+      return res.redirect('/auth/');
     }
 
-    // Check if user exists
     if (results.length === 0) {
-      req.session.loggedin = false;
-      req.session.messageAuth = 'Wrong Credential / Password. Try again';
-      return res.redirect('/');
+      req.session.flash = { type: 'error', message: "Wrong Credential / Password. Try again" };
+      return res.redirect('/auth/');
     }
 
-    const hash = results[0].password;
-    const isPasswordMatch = bcrypt.compareSync(password, hash);
+    const user = results[0];
+    const isPasswordMatch = bcrypt.compareSync(password, user.password);
 
-    if (isPasswordMatch) {
-      // Set session for logged-in user
-      req.session.loggedin = true;
-      req.session.credential = credential;
-      req.session.messageAuth = 'Login Success';
-      req.session.userId = results[0].id;
-      req.session.userRole = results[0].role;
-      req.session.createdAt = results[0].created_at;
-      req.session.updatedAt = results[0].updated_at;
-    } else {
-      req.session.loggedin = false;
-      req.session.messageAuth = 'Wrong Credential / Password. Try again';
+    if (!isPasswordMatch) {
+      req.session.flash = { type: 'error', message: "Wrong Credential / Password. Try again" };
+      return res.redirect('/auth/');
     }
 
-    return res.redirect('/');
+    // ✅ success
+    req.session.loggedin = true;
+    req.session.credential = credential;
+    req.session.userId = user.id;
+    req.session.userRole = user.role;
+    req.session.createdAt = user.created_at;
+    req.session.updatedAt = user.updated_at;
+    req.session.flash = { type: 'success', message: "Login Success" };
+
+    return res.redirect('/'); // ✅ after login → home/dashboard
   });
 });
 
 
-//POST 
+// POST /auth/register
 router.post('/register', async (req, res) => {
   const { name, email, password, confirmPassword } = req.body;
 
   if (!name || !email || !password || !confirmPassword) {
-    req.session.error = "All fields are required.";
-    return res.redirect('/register');
+    req.session.flash = { type: 'error', message: "All fields are required." };
+    return res.redirect('/auth/register');
   }
 
   if (password !== confirmPassword) {
-    req.session.error = "Passwords do not match.";
-    return res.redirect('/register');
+    req.session.flash = { type: 'error', message: "Passwords do not match." };
+    return res.redirect('/auth/register');
   }
 
   try {
@@ -75,54 +69,45 @@ router.post('/register', async (req, res) => {
       [email, email]
     );
     if (rows.length > 0) {
-      req.session.error = "Email already registered.";
-      return res.redirect('/register');
+      req.session.flash = { type: 'error', message: "Email already registered." };
+      return res.redirect('/auth/register');
     }
 
     // hash password
-    const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-    // insert new user (adjust to your schema)
+    // insert new user
     const now = new Date();
     await connection.promise().query(
       `INSERT INTO users 
-       (credential, name, email, password, role, gender, age, profession, phone_number, address, created_at, updated_at) 
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+       (credential, name, email, password, password_plain, role, gender, age, profession, phone_number, address, created_at, updated_at) 
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
-        email,
-        name, // credential
+        email,        // credential = email
+        name,
         email,
         hashedPassword,
-        "user",   // default role
-        "unknown", // gender default
-        0,         // age default
-        "",        // profession
-        0,         // phone_number
-        "",        // address
+        password,
+        "user",       // default role
+        "unknown",
+        0,
+        "-",
+        "0",
+        "-",
         now,
         now
       ]
     );
 
-    req.session.success = "Registration successful. Please log in.";
-    return res.redirect('/auth/register');
+    req.session.flash = { type: 'success', message: "Registration successful. <a href='/auth'>Please log in.</a>" };
+    return res.redirect('/auth/register'); // ✅ after register → login page
 
   } catch (err) {
     console.error("Registration error:", err);
-    req.session.error = "Internal Server Error.";
+    req.session.flash = { type: 'error', message: "Internal Server Error." };
     return res.redirect('/auth/register');
   }
 });
 
-// GET 
-router.get('/logout', (req, res) => {
-  req.session.destroy(err => {
-    if (err) {
-      console.error("Session destroy error:", err);
-    }
-    res.redirect('/');
-  });
-});
 
 module.exports = router;

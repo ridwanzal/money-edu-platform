@@ -4,9 +4,8 @@ const router = express.Router();
 const { promisePool } = require('../config/db');
 const { connection } = require('../config/db');
 
-const checkLogin = require("../middleware/auth"); // adjust path as needed
-
 router.get('/', function (req, res, next) {
+   console.log(req.session.loggedin)
    if (req.session.loggedin) {
       res.render('pages/profile', {
          messageContact: req.session.messageContact,

@@ -5,7 +5,7 @@ const { connection } = require('../config/db');
 
 router.get('/', function (req, res, next) {
    if (req.session.loggedin) { 
-      res.redirect('/admin');
+      res.redirect('/');
    }else {
       res.render('pages/admin/login', {
          title: 'Admin - Payung Madinah',
@@ -15,6 +15,7 @@ router.get('/', function (req, res, next) {
          description: 'Membantu klien untuk membangun produk digital mereka, web dan mobile app dengan kualitas terbaik dari Payung Madinah',
          breadcrumbs: [
             {
+
                name: 'Login',
                link: '/'
             },

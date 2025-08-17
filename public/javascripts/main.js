@@ -363,19 +363,19 @@ $(function () {
 		});
 	});
 
-const pdfButtons = document.querySelectorAll('.pdf-open-btn');
-const pdfViewer = document.getElementById('pdfViewer');
+	const pdfButtons = document.querySelectorAll('.pdf-open-btn');
+	const pdfViewer = document.getElementById('pdfViewer');
 
-pdfButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const pdfPath = button.getAttribute('data-pdf');
-    pdfViewer.src = '/pdfjs/web/viewer.html?file=' + encodeURIComponent(pdfPath);
-  });
-});
+	pdfButtons.forEach(button => {
+		button.addEventListener('click', () => {
+			const pdfPath = button.getAttribute('data-pdf');
+			pdfViewer.src = '/pdfjs/web/viewer.html?file=' + encodeURIComponent(pdfPath);
+		});
+	});
 
-document.getElementById('pdfModal').addEventListener('hidden.bs.modal', () => {
-  pdfViewer.src = '';
-});
-
-
+	if ($('#pdfModal').length) {
+		document.getElementById('pdfModal').addEventListener('hidden.bs.modal', () => {
+			pdfViewer.src = '';
+		});
+	}
 });

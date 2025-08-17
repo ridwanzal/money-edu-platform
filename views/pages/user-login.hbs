@@ -19,11 +19,11 @@
             </div>
           {{/if}}
 
-          <form action="/login" method="POST">
+          <form action="services/auth/" method="POST">
             <input type="hidden" name="_csrf" value="{{csrfToken}}" />
 
             <div class="mb-3">
-              <label for="email" class="form-label text-dark">Email address</label>
+              <label for="credential" class="form-label text-dark">Email address</label>
               <input
                 type="email"
                 class="form-control"
