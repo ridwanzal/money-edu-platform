@@ -41,7 +41,7 @@ npm i -g pm2
 and run the following
 
 ```
-pm2 start ./bin/www
+pm2 start ./bin/app-edu
 ```
 
 
