@@ -4,13 +4,13 @@
 	"private": true,
 	"scripts": {
 		"start": "npm-run-all --parallel sass uglify serve",
-		"serve": "nodemon ./bin/www",
+		"serve": "nodemon ./bin/app-edu",
 		"sass": "sass --watch scss/style.scss --style compressed public/stylesheets/index.min.css",
 		"uglify": "uglifyjs ./public/javascripts/base/a-jquery.min.js ./public/javascripts/base/b-popper.min.js ./public/javascripts/base/c-bootstrap.min.js ./public/javascripts/base/d-aos.min.js ./public/javascripts/base/e-swiper.min.js ./public/javascripts/base/f-match-height.min.js ./public/javascripts/base/g-lightbox.js  ./public/javascripts/main.js -o ./public/javascripts/bundle.min.js",
 		"prod": "npm-run-all --parallel sass uglify prod-serve",
-		"prod-serve": "pm2 ./bin/www --quiet",
+		"prod-serve": "pm2 ./bin/app-edu --quiet",
 		"debug": "npm-run-all --parallel sass debug-serve",
-		"debug-serve": "nodemon --inspect ./bin/www"
+		"debug-serve": "nodemon --inspect ./bin/app-edu"
 	},
 	"dependencies": {
 		"bcrypt": "^5.1.0",

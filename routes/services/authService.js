@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
     return res.redirect('/auth/');
   }
 
-  const query = "SELECT id, role, created_at, updated_at, password FROM users WHERE credential = ?";
+  const query = "SELECT id, name, gender, role, created_at, updated_at, password FROM users WHERE credential = ?";
   connection.query(query, [credential], (err, results) => {
     if (err) {
       console.error("Database query error:", err);
@@ -22,6 +22,7 @@ router.post('/', (req, res) => {
     }
 
     if (results.length === 0) {
+      console.log("No user found with credential:", credential);
       req.session.flash = { type: 'error', message: "Wrong Credential / Password. Try again" };
       return res.redirect('/auth/');
     }
@@ -30,6 +31,7 @@ router.post('/', (req, res) => {
     const isPasswordMatch = bcrypt.compareSync(password, user.password);
 
     if (!isPasswordMatch) {
+      console.error("Password mismatch for user:", credential);
       req.session.flash = { type: 'error', message: "Wrong Credential / Password. Try again" };
       return res.redirect('/auth/');
     }
@@ -41,6 +43,9 @@ router.post('/', (req, res) => {
     req.session.userRole = user.role;
     req.session.createdAt = user.created_at;
     req.session.updatedAt = user.updated_at;
+    req.session.name = user.name;
+    req.session.gender = user.gender;
+     // use name if available, otherwise use credential
     req.session.flash = { type: 'success', message: "Login Success" };
 
     return res.redirect('/'); // ✅ after login → home/dashboard
@@ -107,6 +112,23 @@ router.post('/register', async (req, res) => {
     req.session.flash = { type: 'error', message: "Internal Server Error." };
     return res.redirect('/auth/register');
   }
+});
+
+// GET /auth/logout
+router.get('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.error("Logout error:", err);
+      req.session.flash = { type: 'error', message: "Logout failed. Please try again." };
+      return res.redirect('/');
+    }
+
+    // hapus cookie bawaan express-session
+    res.clearCookie('connect.sid');
+    
+    // redirect ke halaman login
+    return res.redirect('/auth/');
+  });
 });
 
 

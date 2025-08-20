@@ -5,21 +5,20 @@ window.fullURL = $("body").data("fullurl");
 
 var core = {
 	init: function () {
-		this.lazyloading();
-		AOS.init();
 	},
 	lazyloading: function () {
 		lazySizes.init();
 	},
 };
 
-$(function () {
-	function hidePreloader() {
-		const preloader = document.getElementById('preloader');
-		if (preloader) {
-			preloader.style.display = 'none';
-		}
+function hidePreloader() {
+	const preloader = document.getElementById('preloader');
+	if (preloader) {
+		preloader.style.display = 'none';
 	}
+}
+
+$(function () {
 
 	// Hide on normal load
 	window.addEventListener('load', hidePreloader);

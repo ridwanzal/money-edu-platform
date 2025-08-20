@@ -5,8 +5,9 @@ const { promisePool } = require('../config/db');
 const { connection } = require('../config/db');
 
 router.get('/', function (req, res, next) {
-   console.log(req.session.loggedin)
+   console.log(req.session.loggedin);
    if (req.session.loggedin) {
+      console.log(req.session)
       res.render('pages/profile', {
          messageContact: req.session.messageContact,
          title: 'E-Ibu Cerdas',
@@ -24,7 +25,8 @@ router.get('/', function (req, res, next) {
                name: 'Kontak',
                link: '/kontak'
             }
-         ]
+         ],
+         sessions: req.session
       });
    }
    else{
