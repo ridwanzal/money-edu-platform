@@ -14,25 +14,12 @@ var core = {
 };
 
 $(function () {
-	function hidePreloader() {
-		const preloader = document.getElementById('preloader');
-		if (preloader) {
-			preloader.style.display = 'none';
-		}
-	}
-
 	// Hide on normal load
-	window.addEventListener('load', hidePreloader);
-
-	// Hide on back/forward navigation (always)
-	window.addEventListener('pageshow', hidePreloader);
-
 	// Show preloader when clicking internal links
 	document.addEventListener('click', function (e) {
 		const link = e.target.closest('a');
 		if (link && link.href && link.origin === location.origin && !link.hasAttribute('target')) {
 			e.preventDefault();
-			document.getElementById('preloader').style.display = 'flex';
 			window.location.href = link.href;
 		}
 	});
