@@ -14,8 +14,6 @@ var core = {
 };
 
 $(function () {
-	// Hide on normal load
-	// Show preloader when clicking internal links
 	document.addEventListener('click', function (e) {
 		const link = e.target.closest('a');
 		if (link && link.href && link.origin === location.origin && !link.hasAttribute('target')) {
@@ -23,7 +21,6 @@ $(function () {
 			window.location.href = link.href;
 		}
 	});
-
 
 	core.init();
 	$(window).on("scroll", function (e) {
