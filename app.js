@@ -83,6 +83,7 @@ app.use((req, res, next) => {
   res.locals.userRole = req.session.userRole || null;
   res.locals.currentPath = req.path;
   res.locals.success = req.session.success;
+  res.locals.name = req.session.name || null;
   res.locals.error = req.session.error;
   delete req.session.success;
   delete req.session.error;
