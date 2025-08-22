@@ -5,8 +5,6 @@ window.fullURL = $("body").data("fullurl");
 
 var core = {
 	init: function () {
-		this.lazyloading();
-		AOS.init();
 	},
 	lazyloading: function () {
 		lazySizes.init();

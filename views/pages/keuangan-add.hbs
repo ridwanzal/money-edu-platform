@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h3>Tambah Catatan Keuangan</h3>
+  <form method="POST" action="/keuangan/add">
+    <div class="mb-3">
+      <label class="form-label">Keterangan</label>
+      <input type="text" class="form-control" name="keterangan" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Jumlah</label>
+      <input type="number" class="form-control" name="jumlah" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Tipe</label>
+      <select class="form-select" name="tipe" required>
+        <option value="pemasukan">Pemasukan</option>
+        <option value="pengeluaran">Pengeluaran</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Tanggal</label>
+      <input type="date" class="form-control" name="tanggal" required>
+    </div>
+    <button type="submit" class="btn btn-success">Simpan</button>
+    <a href="/keuangan" class="btn btn-secondary">Kembali</a>
+  </form>
+</div>

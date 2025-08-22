@@ -25,11 +25,13 @@ const investasiRouter = require('./routes/investasi');
 const videoRouter = require('./routes/video');
 const modulRouter = require('./routes/modul');
 const authRouter = require('./routes/auth');
+const keuanganRouter = require('./routes/keuangan');
 
 // Routers - API / Services
 const authSers = require('./routes/services/authService');
 const uploadSers = require('./routes/services/uploadService');
 const blogSers = require('./routes/services/blogService');
+const keuanganSers = require('./routes/services/keuanganService');
 
 const app = express();
 dayjs.extend(utc);
@@ -83,6 +85,7 @@ app.use((req, res, next) => {
   res.locals.userRole = req.session.userRole || null;
   res.locals.currentPath = req.path;
   res.locals.success = req.session.success;
+  res.locals.name = req.session.name || null;
   res.locals.error = req.session.error;
   delete req.session.success;
   delete req.session.error;
@@ -136,6 +139,7 @@ app.use('/investasi', investasiRouter);
 app.use('/video', videoRouter);
 app.use('/modul', modulRouter);
 app.use('/auth', authRouter);
+app.use('/keuangan', keuanganRouter);
 
 // Backpage routes
 app.use('/admin', adminRouter);
@@ -144,6 +148,7 @@ app.use('/admin', adminRouter);
 app.use('/services/auth', authSers);
 app.use('/services/upload', uploadSers);
 app.use('/services/blog', blogSers);
+app.use('/services/keuangan', keuanganSers);
 
 // Serve /pdfjs (PDF.js files)
 app.use('/pdfjs', express.static(path.join(__dirname, 'public/pdfjs')));

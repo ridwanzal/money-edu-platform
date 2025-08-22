@@ -1,56 +1,56 @@
 <!-- CAROUSEL -->
 <div class="carousel-container">
   <div class="carousel">
-    <div><img src="/images/blogs/ai.webp" alt="Slide 1"></div>
-    <div><img src="/images/blogs/ai.webp" alt="Slide 2"></div>
-    <div><img src="/images/blogs/ai.webp" alt="Slide 3"></div>
-    <div><img src="/images/blogs/ai.webp" alt="Slide 4"></div>
-    <div><img src="/images/blogs/ai.webp" alt="Slide 5"></div>
+    <div><img src="/images/blogs/ai.webp" loading="lazy" alt="Slide 1"></div>
+    <div><img src="/images/blogs/ai.webp" loading="lazy" alt="Slide 2"></div>
+    <div><img src="/images/blogs/ai.webp" loading="lazy" alt="Slide 3"></div>
+    <div><img src="/images/blogs/ai.webp" loading="lazy" alt="Slide 4"></div>
+    <div><img src="/images/blogs/ai.webp" loading="lazy" alt="Slide 5"></div>
   </div>
 </div>
 
 <!-- CARD MENU -->
 <section class="menu-grid">
-  <div class="menu-card">
-    <a href="/investasi">
+  <a href="/investasi" class="menu-card">
+    <div>
       <i class="bi bi-bar-chart mb-4"></i>
       <span>Investasi</span>
-    </a>
-  </div>
-  <div class="menu-card">
-    <a href="/modul">
+    </div>
+  </a>
+  <a href="/modul" class="menu-card">
+    <div>
       <i class="bi bi-journal-bookmark mb-4"></i>
       <span>Modul</span>
-    </a>
-  </div>
-  <div class="menu-card">
-    <a href="/video">
+    </div>
+  </a>
+  <a href="/video" class="menu-card">
+    <div>
       <i class="bi bi-play-btn mb-4"></i>
       <span>Video</span>
-    </a>
-  </div>
-  <div class="menu-card">
-    <a href="/berita">
+    </div>
+  </a>
+  <a href="/berita" class="menu-card">
+    <div>
       <i class="bi bi-newspaper mb-4"></i>
       <span>Berita</span>
-    </a>
-  </div>
-  <div class="menu-card">
-    <a href="/berita">
+    </div>
+  </a>
+  <a href="/keuangan" class="menu-card">
+    <div>
       <i class="bi bi-briefcase mb-4"></i>
       <span>Keuangan</span>
-    </a>
-  </div>
-  <div class="menu-card">
+    </div>
+  </a>
+  <a class="menu-card">
     <i class="bi bi-chat-quote mb-4"></i>
     <span>Live Chat</span>
-  </div>
+  </a>
 </section>
 
 <section class="article-list">
+  <h2 class="mb-lg-3 mt-4" style="font-size: 16px; padding-left: 16px; font-weight:bold;">Artikel Terbaru</h2>
   <div class="container">
     <div class="row" id="articleList">
-      <h2 class="section-title mb-lg-4 mb-3">Artikel Terbaru</h2>
       {{#each articles}}
       <div class="col-12 mb-3 p-0">
         <div class="h-100" style="border-bottom: 1px solid #eee;">

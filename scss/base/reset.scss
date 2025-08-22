@@ -286,8 +286,9 @@ img {
 		padding: 6px;
 	}
 
-	&:hover {
-		color: white !important;
+	&:hover, &:active, &:focus {
+		color: black;
+		text-decoration: none !important;
 	}
 }
 

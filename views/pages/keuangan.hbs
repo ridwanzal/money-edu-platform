@@ -1,0 +1,65 @@
+<div class="container p-3">
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <div class="card text-bg-success">
+        <div class="card-body text-dark">
+          <h6>Pemasukan</h6>
+          <p class="fs-4 mb-0">Rp {{summary.total_pemasukan}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-bg-danger text-dark">
+        <div class="card-body">
+          <h6>Pengeluaran</h6>
+          <p class="fs-4 mb-0">Rp {{summary.total_pengeluaran}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-bg-primary text-dark">
+        <div class="card-body">
+          <h6>Saldo</h6>
+          <p class="fs-4 mb-0">Rp {{summary.saldo}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between mb-3">
+    <h5>Catatan Keuangan</h5>
+    <a href="/keuangan/add" class="btn btn-sm btn-success">Tambah Catatan</a>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Tanggal</th>
+        <th>Keterangan</th>
+        <th>Jumlah</th>
+        <th>Tipe</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each list}}
+      <tr>
+        <td>{{this.tanggal}}</td>
+        <td>{{this.keterangan}}</td>
+        <td>Rp {{this.jumlah}}</td>
+        <td>
+          {{#if (eq this.tipe "pemasukan")}}
+            <span class="badge bg-success">Pemasukan</span>
+          {{else}}
+            <span class="badge bg-danger">Pengeluaran</span>
+          {{/if}}
+        </td>
+        <td>
+          <a href="/keuangan/edit/{{this.id}}" class="btn btn-sm btn-primary">Edit</a>
+          <a href="/keuangan/delete/{{this.id}}" class="btn btn-sm btn-danger" onclick="return confirm('Hapus data?')">Hapus</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

@@ -352,6 +352,61 @@ router.get("/umroh-gratis", checkLogin, function (req, res, next) {
 });
 
 
+router.get("/keuangan", function (req, res, next) {
+  if (req.session.loggedin) {
+    const sql = "SELECT * FROM blogs ORDER BY created_at DESC";
+    
+    connection.query(sql, (err, results) => {
+      if (err) {
+        console.error("Error fetching blogs:", err);
+        return res.status(500).render("pages/admin/blog", {
+          messageAuth: req.session.messageAuth,
+          title: "Admin - Payung Madinah",
+          author: "M. Ridwan Zalbina",
+          canonical: "https://payungmadinah.id/pages/linkpage",
+          description:
+            "Membantu klien untuk membangun produk digital mereka, web dan mobile app dengan kualitas terbaik dari Payung Madinah",
+          breadcrumbs: [{ name: "Home", link: "/" }],
+          error: "Gagal mengambil data artikel."
+        });
+      }
+
+      res.render("pages/admin/blog", {
+        messageAuth: req.session.messageAuth,
+        title: "Admin - Payung Madinah",
+        author: "M. Ridwan Zalbina",
+        canonical: "https://payungmadinah.id/pages/linkpage",
+        description:
+          "Membantu klien untuk membangun produk digital mereka, web dan mobile app dengan kualitas terbaik dari Payung Madinah",
+        breadcrumbs: [{ name: "Home", link: "/" }],
+        data: results // 👈 Send data to Handlebars
+      });
+    });
+
+  } else {
+    res.render("pages/admin/login", {
+      messageAuth: req.session.messageAuth,
+      title: "Admin - Payung Madinah",
+      author: "M. Ridwan Zalbina",
+      canonical: "https://payungmadinah.id/pages/linkpage",
+      breadcrumbs: [
+      {
+        name: "Home",
+        link: "/",
+      },
+      {
+        name: "Blog",
+        link: "/admin/berita",
+      },
+    ],
+      description: 
+        "Membantu klien untuk membangun produk digital mereka, web dan mobile app dengan kualitas terbaik dari Payung Madinah",
+    });
+  }
+});
+
+
+
 router.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {

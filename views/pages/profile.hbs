@@ -14,39 +14,29 @@
   {{/if}}
   <!-- Profile Header -->
   <div class="text-center mb-3 mt-3">
-    <img src="/images/icons/userlogin.png" width="65" class="rounded-circle mb-2 border" alt="Profile Picture">
-    <h5 class="mb-0 fw-bold">John Doe</h5>
-    <small class="text-muted">Professional</small>
+    <img src="/images/icons/userlogin.png" loading="lazy" width="65"
+      class="rounded-circle mb-2 border" alt="Profile Picture">
+    <h5 class="mb-0 fw-bold">{{sessions.name}}</h5>
+    <small class="text-muted">Bergabung {{formatTanggalID sessions.createdAt}}</small>
   </div>
-
-  <!-- Stats -->
-  <div class="row text-center mb-4">
-    <div class="col">
-      <h6 class="fw-bold mb-0">120</h6>
-      <small class="text-muted">Posts</small>
-    </div>
-    <div class="col">
-      <h6 class="fw-bold mb-0">4.5K</h6>
-      <small class="text-muted">Followers</small>
-    </div>
-    <div class="col">
-      <h6 class="fw-bold mb-0">310</h6>
-      <small class="text-muted">Following</small>
-    </div>
-  </div>
-
-  <!-- Action Buttons -->
-  <div class="d-flex gap-2 justify-content-center mb-4">
-    <button class="btn btn-primary btn-sm px-4 rounded-pill">Follow</button>
-    <button class="btn btn-outline-secondary btn-sm px-4 rounded-pill">Message</button>
-  </div>
-
+  
   <!-- About Section -->
   <div class="mb-4">
-    <h6 class="fw-bold">About</h6>
     <p class="text-muted small mb-0">
-      Passionate designer with 5+ years of experience creating engaging user experiences.
+      Passionate designer with 5+ years of experience creating engaging user
+      experiences.
       Always exploring new trends and technologies.
     </p>
+  </div>
+
+  <div class="mt-4">
+    <a href="/services/auth/logout" class="w-100 btn btn-outline-danger">Keluar
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" style="position: relative; top:-2px;"
+        fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+        <path fill-rule="evenodd"
+          d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+      </svg></a>
   </div>
 </div>
