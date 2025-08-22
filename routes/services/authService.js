@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
     req.session.createdAt = user.created_at;
     req.session.updatedAt = user.updated_at;
     req.session.flash = { type: 'success', message: "Login Success" };
-
+    req.session.flash = { type: 'success', message: "Login successful. <a href='/auth'>Please log in.</a>" };
     return res.redirect('/'); // ✅ after login → home/dashboard
   });
 });
