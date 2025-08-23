@@ -47,7 +47,7 @@ router.post('/', (req, res) => {
     req.session.gender = user.gender;
      // use name if available, otherwise use credential
     req.session.flash = { type: 'success', message: "Login Success" };
-
+    req.session.flash = { type: 'success', message: "Login successful. <a href='/auth'>Please log in.</a>" };
     return res.redirect('/'); // ✅ after login → home/dashboard
   });
 });

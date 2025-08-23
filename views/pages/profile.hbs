@@ -1,5 +1,17 @@
 <div class="container">
+  {{#if success}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{success}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {{/if}}
 
+  {{#if error}}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{error}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {{/if}}
   <!-- Profile Header -->
   <div class="text-center mb-3 mt-3">
     <img src="/images/icons/userlogin.png" loading="lazy" width="65"
