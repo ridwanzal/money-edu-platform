@@ -45,7 +45,7 @@
             <div class="finance-card__date">{{this.tanggal}}</div>
           </div>
           <span
-            class="badge {{#if (eq this.tipe 'pemasukan')}}text-bg-success{{else if (eq this.tipe 'pengeluaran')}}text-bg-danger{{else}}text-bg-secondary{{/if}}">
+            class="badge {{#if (eqcomp this.tipe 'pemasukan')}}text-bg-success{{else if (eq this.tipe 'pengeluaran')}}text-bg-danger{{else}}text-bg-secondary{{/if}}">
             {{#if this.tipe}}{{this.tipe}}{{else}}-{{/if}}
           </span>
         </div>

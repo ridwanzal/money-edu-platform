@@ -106,6 +106,8 @@ hbs.registerHelper('ifCond', function (v1, operator, v2, options) {
    }
 });
 
+
 hbs.registerHelper("eq", function (a, b, options) {
    return a === b ? options.fn(this) : options.inverse(this);
 });
+hbs.registerHelper('eqcomp', (a, b) => String(a) === String(b));
