@@ -1,65 +1,74 @@
 <div class="container p-3">
-  <div class="row mb-3">
-    <div class="col-md-4">
-      <div class="card text-bg-success">
-        <div class="card-body text-dark">
-          <h6>Pemasukan</h6>
-          <p class="fs-6 mb-0">Rp {{summary.total_pemasukan}}</p>
+  <div class="row g-3"> <!-- g-3 biar ada gap rapi antar card -->
+    <div class="col-12 col-md-4">
+      <div class="finance-summary-card bg-success text-white">
+        <div class="card-body">
+          <h6 class="mb-1">Pemasukan</h6>
+          <p class="summary-amount mb-0">Rp {{summary.total_pemasukan}}</p>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="card text-bg-danger text-dark">
+    <div class="col-12 col-md-4">
+      <div class="finance-summary-card bg-danger text-white">
         <div class="card-body">
-          <h6>Pengeluaran</h6>
-          <p class="fs-6 mb-0">Rp {{summary.total_pengeluaran}}</p>
+          <h6 class="mb-1">Pengeluaran</h6>
+          <p class="summary-amount mb-0">Rp {{summary.total_pengeluaran}}</p>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="card text-bg-primary text-dark">
+    <div class="col-12 col-md-4">
+      <div class="finance-summary-card bg-primary text-white">
         <div class="card-body">
-          <h6>Saldo</h6>
-          <p class="fs-6 mb-0">Rp {{summary.saldo}}</p>
+          <h6 class="mb-1">Saldo</h6>
+          <p class="summary-amount mb-0">Rp {{summary.saldo}}</p>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="d-flex justify-content-between mb-3">
-    <h5>Catatan Keuangan</h5>
-    <a href="/keuangan/add" class="btn btn-sm btn-success">Tambah <i class="bi bi-plus"></i></a>
+</div>
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between mb-3">
+      <h5>Catatan Keuangan</h5>
+      <a href="/keuangan/add" class="btn btn-sm btn-success">Tambah <i
+          class="bi bi-plus"></i></a>
+    </div>
   </div>
+  <!-- Mobile cards (shown on < md) -->
+  <div class="d-md-none">
+    <div class="container">
+      {{#each keuangan}}
+      <div class="finance-card mb-3">
+        <div
+          class="finance-card__header d-flex justify-content-between align-items-start">
+          <div>
+            <div class="finance-card__title">{{this.keterangan}}</div>
+            <div class="finance-card__date">{{this.tanggal}}</div>
+          </div>
+          <span
+            class="badge {{#if (eq this.tipe 'pemasukan')}}text-bg-success{{else if (eq this.tipe 'pengeluaran')}}text-bg-danger{{else}}text-bg-secondary{{/if}}">
+            {{#if this.tipe}}{{this.tipe}}{{else}}-{{/if}}
+          </span>
+        </div>
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Tanggal</th>
-        <th>Keterangan</th>
-        <th>Jumlah</th>
-        <th>Tipe</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each list}}
-      <tr>
-        <td>{{this.tanggal}}</td>
-        <td>{{this.keterangan}}</td>
-        <td>Rp {{this.jumlah}}</td>
-        <td>
-          {{#if (eq this.tipe "pemasukan")}}
-            <span class="badge bg-success">Pemasukan</span>
-          {{else}}
-            <span class="badge bg-danger">Pengeluaran</span>
-          {{/if}}
-        </td>
-        <td>
-          <a href="/keuangan/edit/{{this.id}}" class="btn btn-sm btn-primary">Edit</a>
-          <a href="/keuangan/delete/{{this.id}}" class="btn btn-sm btn-danger" onclick="return confirm('Hapus data?')">Hapus</a>
-        </td>
-      </tr>
+        <div class="finance-card__body mt-2">
+          <div class="finance-card__amount">
+            Rp {{this.jumlah}}
+          </div>
+        </div>
+
+        <div class="finance-card__footer d-flex gap-2 mt-3">
+          <a href="/keuangan/edit/{{this.id}}"
+            class="btn btn-primary btn-sm flex-fill">
+            <i class="bi bi-pencil me-1"></i> Edit
+          </a>
+          <a href="/keuangan/delete/{{this.id}}"
+            class="btn btn-outline-danger btn-sm flex-fill"
+            onclick="return confirm('Hapus data?')">
+            <i class="bi bi-trash me-1"></i> Hapus
+          </a>
+        </div>
+      </div>
       {{/each}}
-    </tbody>
-  </table>
+    </div>
+  </div>
 </div>

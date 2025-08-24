@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/add', (req, res) => {
-  const { keterangan, jumlah, tipe, tanggal } = req.body;
+  const { user_id, keterangan, jumlah, tipe, tanggal } = req.body;
 
   if (!keterangan || !jumlah || !tipe || !tanggal) {
     return res.status(400).json({ error: 'Semua field (keterangan, jumlah, tipe, tanggal) wajib di isi.' });
@@ -31,10 +31,10 @@ router.post('/add', (req, res) => {
 
   const sql = `
     INSERT INTO keuangan
-      (keterangan, jumlah, tipe, tanggal, created_at, updated_at)
-    VALUES (?, ?, ?, ?, ?, ?)
+      (user_id, keterangan, jumlah, tipe, tanggal, created_at, updated_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
   `;
-  const params = [keterangan, jumlah, tipe, tanggal, now, now];
+  const params = [user_id, keterangan, jumlah, tipe, tanggal, now, now];
 
   connection.query(sql, params, (err, result) => {
     if (err) {

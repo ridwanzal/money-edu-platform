@@ -1254,6 +1254,7 @@ div.dt-container select.dt-input {
 @media (max-width: 576px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 576px) and (min-resolution: 192dpi) {
 	.btn {
 		text-decoration: none !important;
+		font-size: 14px !important;
 	}
 
 	/* Filled Buttons */
@@ -1261,8 +1262,8 @@ div.dt-container select.dt-input {
 		background-color: #198754 !important;
 		border-color: #198754 !important;
 		font-weight: 700 !important;
-		font-size: 1.05rem !important;
-		padding: 0.7rem 1.3rem !important;
+		font-size: 14px !important;
+		padding: 0.5rem 1rem !important;
 		box-shadow: 0 2px 6px rgba(25, 135, 84, 0.4) !important;
 	}
 
@@ -1270,8 +1271,8 @@ div.dt-container select.dt-input {
 		background-color: #0d6efd !important;
 		border-color: #0d6efd !important;
 		font-weight: 700 !important;
-		font-size: 1.05rem !important;
-		padding: 0.7rem 1.3rem !important;
+		font-size: 14px !important;
+		padding: 0.5rem 1rem !important;
 		box-shadow: 0 2px 6px rgba(13, 110, 253, 0.4) !important;
 	}
 
@@ -1280,8 +1281,8 @@ div.dt-container select.dt-input {
 		border-color: #ffc107 !important;
 		color: #212529 !important;
 		font-weight: 700 !important;
-		font-size: 1.05rem !important;
-		padding: 0.7rem 1.3rem !important;
+		font-size: 14px !important;
+		padding: 0.5rem 1rem !important;
 		box-shadow: 0 2px 6px rgba(255, 193, 7, 0.4) !important;
 	}
 
@@ -1290,8 +1291,8 @@ div.dt-container select.dt-input {
 		border-color: #0dcaf0 !important;
 		color: #212529 !important;
 		font-weight: 700 !important;
-		font-size: 1.05rem !important;
-		padding: 0.7rem 1.3rem !important;
+		font-size: 14px !important;
+		padding: 0.5rem 1rem !important;
 		box-shadow: 0 2px 6px rgba(13, 202, 240, 0.4) !important;
 	}
 
@@ -1299,8 +1300,8 @@ div.dt-container select.dt-input {
 		background-color: #dc3545 !important;
 		border-color: #dc3545 !important;
 		font-weight: 700 !important;
-		font-size: 1.05rem !important;
-		padding: 0.7rem 1.3rem !important;
+		font-size: 14px !important;
+		padding: 0.5rem 1rem !important;
 		box-shadow: 0 2px 6px rgba(220, 53, 69, 0.4) !important;
 	}
 
@@ -1309,8 +1310,8 @@ div.dt-container select.dt-input {
 		border-color: #6c757d !important;
 		color: #fff !important;
 		font-weight: 700 !important;
-		font-size: 1.05rem !important;
-		padding: 0.7rem 1.3rem !important;
+		font-size: 14px !important;
+		padding: 0.5rem 1rem !important;
 		box-shadow: 0 2px 6px rgba(108, 117, 125, 0.4) !important;
 	}
 
@@ -1319,8 +1320,8 @@ div.dt-container select.dt-input {
 		color: #198754 !important;
 		border-color: #198754 !important;
 		font-weight: 700 !important;
-		font-size: 1.05rem !important;
-		padding: 0.7rem 1.3rem !important;
+		font-size: 14px !important;
+		padding: 0.5rem 1rem !important;
 	}
 	.btn-outline-success:hover {
 		background-color: #198754 !important;
@@ -1331,8 +1332,8 @@ div.dt-container select.dt-input {
 		color: #0d6efd !important;
 		border-color: #0d6efd !important;
 		font-weight: 700 !important;
-		font-size: 1.05rem !important;
-		padding: 0.7rem 1.3rem !important;
+		font-size: 14px !important;
+		padding: 0.5rem 1rem !important;
 	}
 	.btn-outline-primary:hover {
 		background-color: #0d6efd !important;
@@ -1343,8 +1344,8 @@ div.dt-container select.dt-input {
 		color: #0dcaf0 !important;
 		border-color: #0dcaf0 !important;
 		font-weight: 700 !important;
-		font-size: 1.05rem !important;
-		padding: 0.7rem 1.3rem !important;
+		font-size: 14px !important;
+		padding: 0.5rem 1rem !important;
 	}
 	.btn-outline-info:hover {
 		background-color: #0dcaf0 !important;
@@ -1355,8 +1356,8 @@ div.dt-container select.dt-input {
 		color: #dc3545 !important;
 		border-color: #dc3545 !important;
 		font-weight: 700 !important;
-		font-size: 1.05rem !important;
-		padding: 0.7rem 1.3rem !important;
+		font-size: 14px !important;
+		padding: 0.5rem 1rem !important;
 	}
 	.btn-outline-danger:hover {
 		background-color: #dc3545 !important;
@@ -1367,8 +1368,8 @@ div.dt-container select.dt-input {
 		color: #ffc107 !important;
 		border-color: #ffc107 !important;
 		font-weight: 700 !important;
-		font-size: 1.05rem !important;
-		padding: 0.7rem 1.3rem !important;
+		font-size: 14px !important;
+		padding: 0.5rem 1rem !important;
 	}
 	.btn-outline-warning:hover {
 		background-color: #ffc107 !important;
@@ -1379,8 +1380,8 @@ div.dt-container select.dt-input {
 		color: #6c757d !important;
 		border-color: #6c757d !important;
 		font-weight: 700 !important;
-		font-size: 1.05rem !important;
-		padding: 0.7rem 1.3rem !important;
+		font-size: 14px !important;
+		padding: 0.5rem 1rem !important;
 	}
 	.btn-outline-secondary:hover {
 		background-color: #6c757d !important;
@@ -1395,4 +1396,104 @@ div.dt-container select.dt-input {
 		text-rendering: optimizeLegibility;
 		touch-action: manipulation;
 	}
+}
+
+/* Finance card styling for hybrid mobile app feel */
+.finance-card {
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.finance-card__title {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.finance-card__date {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+.finance-card__amount {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.finance-card__footer .btn {
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+/* Improve hit area for badges on mobile */
+.finance-card .badge {
+  border-radius: 999px;
+  padding: 6px 10px;
+  text-transform: capitalize;
+}
+
+/* Optional: light haptic feel via active states */
+.finance-card:active {
+  transform: scale(0.996);
+  transition: transform 80ms ease;
+}
+
+/* Hybrid app style summary cards */
+.finance-summary-card {
+  border-radius: 20px;          
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border: none;
+  overflow: hidden;
+  transition: transform 0.15s ease;
+}
+
+.finance-summary-card:active {
+  transform: scale(0.98);      
+}
+
+.finance-summary-card .card-body {
+  padding: 18px 20px;
+  text-align: center;
+}
+
+.finance-summary-card h6 {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.summary-amount {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .finance-card__title {
+    font-size: 13px; /* lebih kecil di mobile */
+  }
+  .finance-card__amount {
+    font-size: 16px; /* biar tidak terlalu besar */
+  }
+  .finance-card__date {
+    font-size: 11px;
+  }
+  .finance-summary-card h6 {
+    font-size: 12px;
+  }
+  .summary-amount {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 768px) {
+  .finance-summary-card .card-body {
+    text-align: left;
+  }
 }

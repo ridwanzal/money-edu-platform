@@ -1,8 +1,9 @@
 <div class="container mt-4">
   <h3 class="fs-6">Tambah Catatan Keuangan</h3>
-  <form method="POST" action="services/keuangan/add">
+  <form method="POST" action="/services/keuangan/add">
     <div class="mb-3">
       <label class="form-label">Keterangan</label>
+      <input type="hidden" name="user_id" value="{{userId}}">
       <input type="text" class="form-control" name="keterangan" required>
     </div>
     <div class="mb-3">
