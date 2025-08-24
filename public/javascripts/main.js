@@ -44,6 +44,20 @@ $(function () {
 
 	$(".js-match-height").matchHeight();
 
+	document.addEventListener("DOMContentLoaded", function () {
+		const isHome = window.location.pathname === "/" || window.location.pathname === "/index.html";
+		const headerMain = document.getElementById("header-main");
+		const headerBack = document.getElementById("header-back");
+
+		if (isHome) {
+			headerMain.classList.remove("d-none");
+			headerBack.classList.add("d-none");
+		} else {
+			headerMain.classList.add("d-none");
+			headerBack.classList.remove("d-none");
+		}
+	});
+
 	$(document).ready(function () {
 		let lastScrollTop = 0;
 

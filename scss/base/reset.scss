@@ -286,7 +286,9 @@ img {
 		padding: 6px;
 	}
 
-	&:hover, &:active, &:focus {
+	&:hover,
+	&:active,
+	&:focus {
 		color: black;
 		text-decoration: none !important;
 	}
@@ -1245,5 +1247,152 @@ div.dt-container select.dt-input {
 		width: 100%;
 		height: 100%;
 		border: none;
+	}
+}
+
+/* Override Bootstrap button styles for mobile + retina displays */
+@media (max-width: 576px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 576px) and (min-resolution: 192dpi) {
+	.btn {
+		text-decoration: none !important;
+	}
+
+	/* Filled Buttons */
+	.btn-success {
+		background-color: #198754 !important;
+		border-color: #198754 !important;
+		font-weight: 700 !important;
+		font-size: 1.05rem !important;
+		padding: 0.7rem 1.3rem !important;
+		box-shadow: 0 2px 6px rgba(25, 135, 84, 0.4) !important;
+	}
+
+	.btn-primary {
+		background-color: #0d6efd !important;
+		border-color: #0d6efd !important;
+		font-weight: 700 !important;
+		font-size: 1.05rem !important;
+		padding: 0.7rem 1.3rem !important;
+		box-shadow: 0 2px 6px rgba(13, 110, 253, 0.4) !important;
+	}
+
+	.btn-warning {
+		background-color: #ffc107 !important;
+		border-color: #ffc107 !important;
+		color: #212529 !important;
+		font-weight: 700 !important;
+		font-size: 1.05rem !important;
+		padding: 0.7rem 1.3rem !important;
+		box-shadow: 0 2px 6px rgba(255, 193, 7, 0.4) !important;
+	}
+
+	.btn-info {
+		background-color: #0dcaf0 !important;
+		border-color: #0dcaf0 !important;
+		color: #212529 !important;
+		font-weight: 700 !important;
+		font-size: 1.05rem !important;
+		padding: 0.7rem 1.3rem !important;
+		box-shadow: 0 2px 6px rgba(13, 202, 240, 0.4) !important;
+	}
+
+	.btn-danger {
+		background-color: #dc3545 !important;
+		border-color: #dc3545 !important;
+		font-weight: 700 !important;
+		font-size: 1.05rem !important;
+		padding: 0.7rem 1.3rem !important;
+		box-shadow: 0 2px 6px rgba(220, 53, 69, 0.4) !important;
+	}
+
+	.btn-secondary {
+		background-color: #6c757d !important; /* Bootstrap gray */
+		border-color: #6c757d !important;
+		color: #fff !important;
+		font-weight: 700 !important;
+		font-size: 1.05rem !important;
+		padding: 0.7rem 1.3rem !important;
+		box-shadow: 0 2px 6px rgba(108, 117, 125, 0.4) !important;
+	}
+
+	/* Outline Buttons */
+	.btn-outline-success {
+		color: #198754 !important;
+		border-color: #198754 !important;
+		font-weight: 700 !important;
+		font-size: 1.05rem !important;
+		padding: 0.7rem 1.3rem !important;
+	}
+	.btn-outline-success:hover {
+		background-color: #198754 !important;
+		color: #fff !important;
+	}
+
+	.btn-outline-primary {
+		color: #0d6efd !important;
+		border-color: #0d6efd !important;
+		font-weight: 700 !important;
+		font-size: 1.05rem !important;
+		padding: 0.7rem 1.3rem !important;
+	}
+	.btn-outline-primary:hover {
+		background-color: #0d6efd !important;
+		color: #fff !important;
+	}
+
+	.btn-outline-info {
+		color: #0dcaf0 !important;
+		border-color: #0dcaf0 !important;
+		font-weight: 700 !important;
+		font-size: 1.05rem !important;
+		padding: 0.7rem 1.3rem !important;
+	}
+	.btn-outline-info:hover {
+		background-color: #0dcaf0 !important;
+		color: #212529 !important;
+	}
+
+	.btn-outline-danger {
+		color: #dc3545 !important;
+		border-color: #dc3545 !important;
+		font-weight: 700 !important;
+		font-size: 1.05rem !important;
+		padding: 0.7rem 1.3rem !important;
+	}
+	.btn-outline-danger:hover {
+		background-color: #dc3545 !important;
+		color: #fff !important;
+	}
+
+	.btn-outline-warning {
+		color: #ffc107 !important;
+		border-color: #ffc107 !important;
+		font-weight: 700 !important;
+		font-size: 1.05rem !important;
+		padding: 0.7rem 1.3rem !important;
+	}
+	.btn-outline-warning:hover {
+		background-color: #ffc107 !important;
+		color: #212529 !important;
+	}
+
+	.btn-outline-secondary {
+		color: #6c757d !important;
+		border-color: #6c757d !important;
+		font-weight: 700 !important;
+		font-size: 1.05rem !important;
+		padding: 0.7rem 1.3rem !important;
+	}
+	.btn-outline-secondary:hover {
+		background-color: #6c757d !important;
+		color: #fff !important;
+	}
+
+	/* General Button Adjustments */
+	.btn {
+		width: 100% !important;
+		border-radius: 0.6rem !important;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+		touch-action: manipulation;
 	}
 }

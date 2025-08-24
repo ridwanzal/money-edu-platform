@@ -1,17 +1,32 @@
 <!-- HEADER -->
-<header class="app-header">
-  <div class="header-left">
-    <img src="/images/icons/image.png" alt="App Logo" class="app-logo">
-    <span class="app-name">E-Ibu Cerdas</span>
+<header class="app-header d-flex justify-content-between align-items-center px-3 py-2 border-bottom">
+  <div class="header-left d-flex align-items-center gap-2">
+    {{!-- Homepage → Logo --}}
+    {{#eq currentPath "/"}}
+      <img src="/images/icons/image.png" alt="App Logo" class="app-logo" style="height: 37px;">
+      <span class="app-name fw-bold">E-Ibu Cerdas</span>
+    {{else}}
+      {{!-- Other pages → Back button --}}
+      <button class="btn btn-sm btn-outline-secondary d-flex align-items-center gap-1" style="border: none; padding: 0 !important;" onclick="history.back()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+          class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.498.498 0 0 1-.146-.35.498.498 0 0 1 .146-.35l4-4a.5.5 0 1 1 .708.708L2.707 7.5H14.5A.5.5 0 0 1 15 8z"/>
+        </svg>
+      </button>
+    {{/eq}}
   </div>
+
   <div class="header-right">
-    <div class="d-flex gap-2">
+    <div class="d-flex gap-2 align-items-center">
       <div style="font-size: 14px;">
         <div style="line-height: 1.2; margin-top: 2px;">Halo, {{name}}</div>
         <div class="text-success" style="font-size: 11px;">Online</div>
       </div>
       <a href="/profile">
-        <img src="/images/icons/userlogin.png" loading="lazy" alt="User" class="user-thumb">
+        <img src="/images/icons/userlogin.png" loading="lazy" alt="User"
+          class="user-thumb"
+          style="height: 28px; width: 28px; border-radius: 50%;">
       </a>
     </div>
   </div>

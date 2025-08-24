@@ -54,10 +54,10 @@ hbs.registerHelper('isNotRoot', function (currentPath, options) {
 });
 
 hbs.registerHelper('formatTanggalID', function (tanggal) {
-  return dayjs(tanggal).tz('Asia/Jakarta').format('dddd, D MMMM YYYY [pukul] HH:mm');
-});   
+   return dayjs(tanggal).tz('Asia/Jakarta').format('dddd, D MMMM YYYY [pukul] HH:mm');
+});
 hbs.registerHelper('incr', function (value) {
-  return parseInt(value) + 1;
+   return parseInt(value) + 1;
 });
 
 // Example helper registration in Express
@@ -66,42 +66,46 @@ hbs.registerHelper('linkAnchorAlt', function (base, slug, title) {
 });
 
 hbs.registerHelper('formatDate', function (date) {
-  return new Date(date).toLocaleDateString('id-ID', {
-    year: 'numeric', month: 'long', day: 'numeric'
-  });
+   return new Date(date).toLocaleDateString('id-ID', {
+      year: 'numeric', month: 'long', day: 'numeric'
+   });
 });
 
 hbs.registerHelper('ifEquals', function (arg1, arg2, options) {
-  return arg1 == arg2 ? options.fn(this) : options.inverse(this);
+   return arg1 == arg2 ? options.fn(this) : options.inverse(this);
 });
 
 hbs.registerHelper('len', function (array) {
-    if (Array.isArray(array)) {
-        return array.length;
-    }
-    return 0;
+   if (Array.isArray(array)) {
+      return array.length;
+   }
+   return 0;
 });
 
 hbs.registerHelper('gt', function (a, b) {
-    return a > b;
+   return a > b;
 });
 
 hbs.registerHelper('ifCond', function (v1, operator, v2, options) {
-    if (!options || typeof options.fn !== 'function' || typeof options.inverse !== 'function') {
-        return ''; // Prevent "reading 'inverse'" error
-    }
+   if (!options || typeof options.fn !== 'function' || typeof options.inverse !== 'function') {
+      return ''; // Prevent "reading 'inverse'" error
+   }
 
-    switch (operator) {
-        case '==':  return (v1 == v2) ? options.fn(this) : options.inverse(this);
-        case '===': return (v1 === v2) ? options.fn(this) : options.inverse(this);
-        case '!=':  return (v1 != v2) ? options.fn(this) : options.inverse(this);
-        case '!==': return (v1 !== v2) ? options.fn(this) : options.inverse(this);
-        case '<':   return (v1 < v2) ? options.fn(this) : options.inverse(this);
-        case '<=':  return (v1 <= v2) ? options.fn(this) : options.inverse(this);
-        case '>':   return (v1 > v2) ? options.fn(this) : options.inverse(this);
-        case '>=':  return (v1 >= v2) ? options.fn(this) : options.inverse(this);
-        case '&&':  return (v1 && v2) ? options.fn(this) : options.inverse(this);
-        case '||':  return (v1 || v2) ? options.fn(this) : options.inverse(this);
-        default:    return options.inverse(this);
-    }
+   switch (operator) {
+      case '==': return (v1 == v2) ? options.fn(this) : options.inverse(this);
+      case '===': return (v1 === v2) ? options.fn(this) : options.inverse(this);
+      case '!=': return (v1 != v2) ? options.fn(this) : options.inverse(this);
+      case '!==': return (v1 !== v2) ? options.fn(this) : options.inverse(this);
+      case '<': return (v1 < v2) ? options.fn(this) : options.inverse(this);
+      case '<=': return (v1 <= v2) ? options.fn(this) : options.inverse(this);
+      case '>': return (v1 > v2) ? options.fn(this) : options.inverse(this);
+      case '>=': return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+      case '&&': return (v1 && v2) ? options.fn(this) : options.inverse(this);
+      case '||': return (v1 || v2) ? options.fn(this) : options.inverse(this);
+      default: return options.inverse(this);
+   }
+});
+
+hbs.registerHelper("eq", function (a, b, options) {
+   return a === b ? options.fn(this) : options.inverse(this);
 });

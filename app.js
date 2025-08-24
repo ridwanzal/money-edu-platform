@@ -38,6 +38,21 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.locale('id');
 
+if (process.env.NODE_ENV === "development") {
+  app.use((req, res, next) => {
+    res.locals.revision = Date.now().toString();
+    next();
+  });
+} else {
+  // production: fixed revision from file
+  const revFile = path.join(__dirname, "revision.json");
+  let revision = Date.now().toString();
+  try {
+    revision = JSON.parse(fs.readFileSync(revFile)).revision;
+  } catch (e) {}
+  app.locals.revision = revision;
+}
+
 // Setup view engine
 app.use('/pdf', express.static(__dirname + '/public/pdf'));
 
@@ -86,6 +101,7 @@ app.use((req, res, next) => {
   res.locals.currentPath = req.path;
   res.locals.success = req.session.success;
   res.locals.name = req.session.name || null;
+  res.locals.currentPath = req.path;
   res.locals.error = req.session.error;
   delete req.session.success;
   delete req.session.error;
