@@ -25,8 +25,8 @@ const pdfList = [
   },
   {
     id: 5,
-    title: "Modul 5. Menabung dan Berinvestasi.pdf",
-    pdfPath: "/pdf/Modul 5. Menabung dan Berinvestasi.pdf"
+    title: "Modul 5. Bahaya Judi Online di Lingkungan Keluarga.pdf",
+    pdfPath: "/pdf/Modul 5. Bahaya Judi Online di Lingkungan Keluarga.pdf"
   },
   {
     id: 6,
