@@ -59,10 +59,6 @@
   <body data-baseurl="{{baseUrl}}" data-fullurl="{{fullUrl}}">
     {{#if loggedin}}
     {{#unless notFound}}
-    {{/unless}}
-    {{/if}}
-    {{> components/header}}
-    {{#if loggedin}}
       <div style="background-color: white; padding: 5px 10px;color:black;"
         class="xcon">
         <div class="d-flex gap-3">
@@ -82,8 +78,10 @@
           </div>
         </div>
       </div>
-    {{/if}}
+    {{> components/header}}
     {{> components/navigation}}
+    {{/unless}}
+    {{/if}}
     {{{body}}}
   </body>
   <script src="/javascripts/bundle.min.js?v={{revision}}"></script>
